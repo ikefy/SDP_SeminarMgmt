@@ -4,12 +4,12 @@ var Request = require('tedious').Request;
 // Create connection to database
 var config =
    {
-       userName: 'adminsdp', // update me
-       password: 'p@ss1234', // update me
-       server: 'sdpseminarmgmt.database.windows.net', // update me
+       userName: 'adminsdp',
+       password: 'p@ss1234',
+       server: 'sdpseminarmgmt.database.windows.net',
        options:
           {
-              database: 'SDP_SeminarMgmt' //update me
+              database: 'SDP_SeminarMgmt'
              , encrypt: true
           }
    }
