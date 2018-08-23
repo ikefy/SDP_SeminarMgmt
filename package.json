@@ -1,0 +1,24 @@
+{
+  "name": "SDP_SeminarMgmt",
+  "version": "1.0.0",
+  "description": "Seminar management system for SDP",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikefy/SDP_SeminarMgmt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikefy/SDP_SeminarMgmt/issues"
+  },
+  "homepage": "https://github.com/ikefy/SDP_SeminarMgmt#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "tedious": "^2.6.4"
+  }
+}
