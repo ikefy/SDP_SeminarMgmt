@@ -31,7 +31,7 @@ function queryDatabase() {
 
     // Read all rows from table
     request = new Request(
-         "SELECT * FROM [dbo].[testtbl_1]'",
+         "SELECT * FROM [dbo].[testtbl_1]",
             function (err, rowCount, rows) {
                 console.log(rowCount + ' row(s) returned');
                 process.exit();
