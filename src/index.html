@@ -1,35 +1,79 @@
-<!--
-* CoreUI - Free Angular Admin Template
-* @version v2.0.0
-* @link https://coreui.io/angular/
-* Copyright (c) 2018 creativeLabs Łukasz Holeczek
-* Licensed under MIT (https://coreui.io/license)
--->
-<!doctype html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-  <base href="./">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="CoreUI - Free Angular Admin Template">
-  <meta name="author" content="Łukasz Holeczek">
-  <meta name="keyword" content="Bootstrap,Admin,Template,Free,Angular,Dashboard,Typescript">
-	<link rel="shortcut icon" href="assets/favicon.ico">
-	<title>CoreUI - Free Angular Admin Template</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    // Shared ID
-    gtag('config', 'UA-118965717-3');
-    // Angular ID
-    gtag('config', 'UA-118965717-4');
-  </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CoreUI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <title>Home</title>
 </head>
-<body class="app">
-  <!-- App Loading... -->
+<body class="app sidebar-minimized sidebar-show">
+    <header class="app-header navbar">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <i class="cui-dashboard h2"></i>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hospitals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <button type="button" class="btn btn-ghost-primary">Primary Button</button>
+            <button type="button" class="btn btn-ghost-secondary">Secondary Button</button>
+            <button type="button" class="btn btn-ghost-success">Success Button</button>
+            <button type="button" class="btn btn-ghost-danger">Danger Button</button>
+            <button type="button" class="btn btn-ghost-warning">Warning Button</button>
+            <button type="button" class="btn btn-ghost-info">Info Button</button>
+            <button type="button" class="btn btn-ghost-light">Light Button</button>
+            <button type="button" class="btn btn-ghost-dark">Dark Button</button>
+        </div>
+        <main class="main">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <footer class="app-footer">
+        <!-- Footer content here -->
+    </footer>
 </body>
 </html>
