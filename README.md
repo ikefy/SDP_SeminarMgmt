@@ -1,8 +1,8 @@
-#README
+# README
 
 The following will list the scoping of the POC and also the required references
 
-#Architecture Scoping
+# Architecture Scoping
 
 Azure SQL (Database Layer)
 sdpseminarmgmt.database.windows.net
@@ -11,7 +11,7 @@ Node.JS (API/Service Layer)
 
 Angular.JS (Core.UI Framework)
 
-#References
+# References
 
 https://imagine.microsoft.com/en-us
 
