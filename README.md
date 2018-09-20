@@ -10,7 +10,7 @@ sdpseminarmgmt.database.windows.net
 
 Node.JS (API/Service Layer)
 
-Angular.JS (Core.UI Framework)
+Angular.JS (Core.UI Styling)
 
 # References
 
