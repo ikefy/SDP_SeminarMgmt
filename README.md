@@ -5,6 +5,7 @@ The following will list the scoping of the POC and also the required references
 # Architecture Scoping
 
 Azure SQL (Database Layer)
+
 sdpseminarmgmt.database.windows.net
 
 Node.JS (API/Service Layer)
