@@ -22,6 +22,8 @@ connection.on('connect', function (err) {
     }
     else {
         queryDatabase()
+
+        ///comment
     }
 }
  );
