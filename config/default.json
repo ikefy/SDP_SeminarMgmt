@@ -1,0 +1,8 @@
+{
+    "connection":{
+        "server"  : "sdpseminarmgmt.database.windows.net",
+        "userName": "adminsdp",
+        "password": "p@ss1234",
+        "options": { "encrypt": true, "database": "SDP_SeminarMgmt" }
+    }
+}
