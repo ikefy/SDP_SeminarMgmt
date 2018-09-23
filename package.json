@@ -1,7 +1,7 @@
 {
   "name": "nodejs-express4-rest-api",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node app.js"
   },
@@ -10,6 +10,9 @@
     "name": "Ike Yuan",
     "email": "ike.yuan@outlook.com"
   },
+  "engines": {
+    "node": "6.9.1"
+  }
   "dependencies": {
     "body-parser": "^1.15.2",
     "config": "^1.26.1",
