@@ -9,8 +9,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(bodyParser.text()); 
-app.use('/test', require('./routes/test'));
+app.use(bodyParser.text());
+app.use('/', require('./routes/test'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 80);
 
 var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
