@@ -7,8 +7,8 @@
   },
   "description": "nodejs-express4-rest-api",
   "author": {
-    "name": "Jovan Popovic",
-    "email": "jovanpop@microsoft.com"
+    "name": "Ike Yuan",
+    "email": "ike.yuan@outlook.com"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
