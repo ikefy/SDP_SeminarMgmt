@@ -10,22 +10,16 @@
     <title>Seminar Management</title>
 </head>
 <body class="app sidebar-minimized sidebar-show">
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
-    <script type="text/javascript" src="selectall.js"></script>
-    <script type="text/javascript" src="test.js"></script>
     <header class="app-header navbar">
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <i class="cui-dashboard h2"></i>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="users.html">Users</a>
+                <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="seminar.html">Seminars</a>
+                <a class="nav-link active" href="users.html">Users</a>
             </li>
         </ul>
     </header>
@@ -41,12 +35,30 @@
             <button type="button" class="btn btn-ghost-dark">Dark Button</button>
         </div>
         <main class="main">
-            <nav class="navbar navbar-light bg-light">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="myFunction()">Search</button>
-                </form>
-            </nav>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Seminar Name</th>
+                        <th scope="col">Venue</th>
+                        <th scope="col">Host</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>A lesson in Information Technology</td>
+                        <td>CB11.05.401</td>
+                        <td>Ike</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Deep dive into Seminar Management</td>
+                        <td>CB11.05.401</td>
+                        <td>Ike</td>
+                    </tr>
+                </tbody>
+            </table>
         </main>
     </div>
     <footer class="app-footer">
