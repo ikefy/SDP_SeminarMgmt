@@ -2,25 +2,25 @@
 
 The following will list the scoping of the POC and also the required references
 
-# Architecture Scoping
+## Architecture Scoping
 
-Azure SQL (Database Layer)
+### Azure SQL (Database Layer)
 
 sdpseminarmgmt.database.windows.net
 
 adminsdp/p@ss1234
 
 
-Node.JS + Express.JS (API/Service Layer)
+### Node.JS + Express.JS (API/Service Layer)
 
 http://sdpseminarmgmt.azurewebsites.net/
 
 http://sdpseminarmgmt.azurewebsites.net/ID00000106 
 
 
-Angular.JS (Core.UI Styling)
+### Angular.JS (Core.UI Styling)
 
-# References
+## References
 
 https://imagine.microsoft.com/en-us
 
