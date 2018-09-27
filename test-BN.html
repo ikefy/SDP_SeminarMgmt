@@ -45,33 +45,19 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(inputtxt.value);">Search</button>
                 </form>
             </nav>
-            <table class="table">
+            <table id="tbl1" class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td id="td-r1-c1">Mark</td>
-                        <td id="td-r1-c2">Otto</td>
-                        <td id="td-r1-c3">@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td id="td-r2-c1">Jacob</td>
-                        <td id="td-r2-c2">Thornton</td>
-                        <td id="td-r2-c3">@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
                     </tr>
                 </tbody>
             </table>
@@ -96,8 +82,19 @@
                 }
                 $.ajax(settings).done(function (response) {
                     console.log(response);
-                    inputtxt.value = response;
+                    var usr = response;
+                    var usrparse = JSON.parse(usr);
+                    console.log(usrparse.ID);
+                    settblValues(usrparse);
                 });
+            }
+            function settblValues(usr) {
+                var x = document.getElementById("tbl1").rows[1].cells;
+                x[0].innerHTML = usr.ID;
+                x[1].innerHTML = usr.FirstName;
+                x[2].innerHTML = usr.LastName;
+                console.log(usr.ID);
+                //ID00000100
             }
     </script>
 </body>

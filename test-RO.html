@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<!--
+    Created By: Ike Yuan
+-->
+<head>
+    <title>Seminar Management</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CoreUI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/coreui-icons.min.css">
+</head>
+<body>
+    <header class="app-header navbar">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <i class="cui-dashboard h2"></i>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="seminar.html">Seminars</a>
+            </li>
+        </ul>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <button type="button" class="btn btn-ghost-primary">Primary Button</button>
+            <button type="button" class="btn btn-ghost-secondary">Secondary Button</button>
+            <button type="button" class="btn btn-ghost-success">Success Button</button>
+            <button type="button" class="btn btn-ghost-danger">Danger Button</button>
+            <button type="button" class="btn btn-ghost-warning">Warning Button</button>
+            <button type="button" class="btn btn-ghost-info">Info Button</button>
+            <button type="button" class="btn btn-ghost-light">Light Button</button>
+            <button type="button" class="btn btn-ghost-dark">Dark Button</button>
+        </div>
+        <main class="main">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <input id="inputtxt" class="form-control mr-sm-2" type="text" value="" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(inputtxt.value);">Search</button>
+                </form>
+            </nav>
+            <table id="tbl1" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <footer class="app-footer">
+        <!-- Footer content here -->
+    </footer>
+    <script type="text/javascript">
+            function jcquery(searchname) {
+                inputtxt.value = "";
+                console.log(searchname);
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://sdpseminarmgmt.azurewebsites.net/" + searchname,
+                    "method": "GET",
+                    "headers": {
+                        "cache-control": "no-cache",
+                        "postman-token": "78e3eb68-7982-58f5-1470-943cca576ee9"
+                    }
+                }
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    var usr = response;
+                    var usrparse = JSON.parse(usr);
+                    console.log(usrparse.ID);
+                    settblValues(usrparse);
+                });
+            }
+            function settblValues(usr) {
+                var x = document.getElementById("tbl1").rows[1].cells;
+                x[0].innerHTML = usr.ID;
+                x[1].innerHTML = usr.FirstName;
+                x[2].innerHTML = usr.LastName;
+                console.log(usr.ID);
+                //ID00000100
+            }
+    </script>
+</body>
+</html>
