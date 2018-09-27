@@ -1,6 +1,6 @@
 {
     "connection":{
-        "server"  : "sdpseminarmgmt.database.windows.net",
+        "server"  : "https://sdpseminarmgmt.azurewebsites.net",
         "userName": "adminsdp",
         "password": "p@ss1234",
         "options": { "encrypt": true, "database": "SDP_SeminarMgmt" }
