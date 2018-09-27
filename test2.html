@@ -4,86 +4,26 @@
     Created By: Ike Yuan
 -->
 <head>
-    <title>Seminar Management</title>
+    <title>test</title>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- CoreUI CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/coreui-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <header class="app-header navbar">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <i class="cui-dashboard h2"></i>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="seminar.html">Seminars</a>
-            </li>
-        </ul>
-    </header>
-    <div class="app-body">
-        <div class="sidebar">
-            <button type="button" class="btn btn-ghost-primary">Primary Button</button>
-            <button type="button" class="btn btn-ghost-secondary">Secondary Button</button>
-            <button type="button" class="btn btn-ghost-success">Success Button</button>
-            <button type="button" class="btn btn-ghost-danger">Danger Button</button>
-            <button type="button" class="btn btn-ghost-warning">Warning Button</button>
-            <button type="button" class="btn btn-ghost-info">Info Button</button>
-            <button type="button" class="btn btn-ghost-light">Light Button</button>
-            <button type="button" class="btn btn-ghost-dark">Dark Button</button>
-        </div>
-        <main class="main">
-            <nav class="navbar navbar-light bg-light">
-                <form class="form-inline">
-                    <input id="inputtxt" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(inputtxt.value);">Search</button>
-                </form>
-            </nav>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td id="td-r1-c1">Mark</td>
-                        <td id="td-r1-c2">Otto</td>
-                        <td id="td-r1-c3">@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td id="td-r2-c1">Jacob</td>
-                        <td id="td-r2-c2">Thornton</td>
-                        <td id="td-r2-c3">@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </main>
-    </div>
-    <footer class="app-footer">
-        <!-- Footer content here -->
-    </footer>
+    <form>
+        Search First Name, Last Name or Full Name:<br>
+        <input id="inputtxt" type="text" value="" style="width: 300px;"><br>
+        <input id="searchbtn" type="button" value="Search" onclick="jcquery(inputtxt.value);" /><br>
+        <textarea id="searchresults" rows="35" cols="150"></textarea>
+    </form>
     <script type="text/javascript">
             function jcquery(searchname) {
                 inputtxt.value = "";
                 console.log(searchname);
+                searchresults.value = "";
+                searchresults.innerText = null;
+                searchresults.innerHTML = "";
+                searchresults.defaultValue = "";
                 var settings = {
                     "async": true,
                     "crossDomain": true,
@@ -96,7 +36,8 @@
                 }
                 $.ajax(settings).done(function (response) {
                     console.log(response);
-                    inputtxt.value = response;
+                    searchresults.innerHTML = response;
+                    searchresults.value = response;
                 });
             }
     </script>
