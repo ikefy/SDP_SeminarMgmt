@@ -14,7 +14,7 @@ router.get('/:id', function (req, res) {
     
     req.sql("SELECT * FROM [dbo].[testtbl_1] where ID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
-        .into(res, '{}');
+        .into(res, '[]');
 
 });
 
