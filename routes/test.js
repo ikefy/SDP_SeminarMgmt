@@ -1,7 +1,7 @@
 ﻿var router = require('express').Router();
 var TYPES = require('tedious').TYPES;
 
-/* GET task listing. */
+/* GET test listing. */
 router.get('/', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[testtbl_1]")
@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
 
 });
 
-/* GET single task. */
+/* GET single test user. */
 router.get('/:id', function (req, res) {
     
     req.sql("SELECT * FROM [dbo].[testtbl_1] where ID = @id for json path, without_array_wrapper")

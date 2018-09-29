@@ -1,18 +1,18 @@
 ﻿var router = require('express').Router();
 var TYPES = require('tedious').TYPES;
 
-/* GET task listing. */
+/* GET seminar listing. */
 router.get('/', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[testtbl_1]")
+    req.sql("SELECT * FROM [dbo].[seminar]")
         .into(res, '[]');
 
 });
 
-/* GET single task. */
+/* GET single seminar. */
 router.get('/:id', function (req, res) {
     
-    req.sql("SELECT * FROM [dbo].[testtbl_1] where ID = @id for json path, without_array_wrapper")
+    req.sql("SELECT * FROM [dbo].[seminar] where ID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 
