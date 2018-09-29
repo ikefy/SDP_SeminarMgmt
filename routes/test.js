@@ -21,7 +21,7 @@ router.get('/:id', function (req, res) {
 /* GET seminar listing. */
 router.get('/seminar', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar] for json path")
+    req.sql("SELECT * FROM [dbo].[seminar]")
         .into(res, '[]');
 
 });
@@ -29,7 +29,7 @@ router.get('/seminar', function (req, res) {
 /* GET single seminar. */
 router.get('/seminar/:id', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar] where ID = @id for json path, without_array_wrapper")
+    req.sql("SELECT * FROM [dbo].[seminar] where SeminarID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 
