@@ -21,8 +21,8 @@ router.get('/:id', function (req, res) {
 /* GET seminar listing. */
 router.get('/seminar', function (req, res) {
 
-    req.sql("SELECT [SeminarID],[SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[RoomID] FROM [dbo].[seminar] without_array_wrapper")
-        .into(res, '[]');
+    req.sql("SELECT [SeminarID],[SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[RoomID] FROM [dbo].[seminar]")
+        .into(res, '{}');
 
 });
 
