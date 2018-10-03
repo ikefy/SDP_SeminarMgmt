@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>CHITCHAT | Welcome</title>
+        <link rel="stylesheet" href="./css/register_seminar.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1 class="hightlight"><span>CHITCHAT</span></h1>
+            </div>
+        </header>
+        <section id="middlepart">
+            <div class="container">
+                <aside id="sidenav">
+                    <img src="./img/uts.png">
+                </aside>
+                <div id="content_1">
+                    <div class="dark">
+                        <form action="" method="GET">
+                            <fieldset>
+                                <legend>Register Seminar</legend>
+                                <label for="name">First Name: </label><br>
+                                <input type="text" name="username" id="name" required autofocus placeholder="Your first name" pattern="[a-zA-Z]{3,}" title="Please enter in more than three letter">
+                                <br>
+                                <label for="name">Last Name: </label><br>
+                                <input type="text" name="username" id="name" required autofocus placeholder="Your last name" pattern="[a-zA-Z]{3,}" title="Please enter in more than three letter">
+                                <br>
+                                <label for="email">Email: </label><br>
+                                <input type="text" name="email" id="email" required placeholder="Your email" patter="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}" title="Please Enter in a valid email">
+                                <br>
+                                <label for="name">Occupation: </label><br>
+                                <input type="text" name="occupation" id="occupation" required autofocus placeholder="Your occupation" pattern="[a-zA-Z]{3,}" title="Please enter in more than three letter">
+                                <br>
+                                <label for="name">Phone number: </label><br>
+                                <input type=tel name="phone" id="phone" required placeholder="Your phone number" patter="[0-9]{4} [0-9]{3} [0-9]{3}" title="Please Enter in your phone number">
+                                <br>
+                                <label for="gender">Gender: </label><br>
+                                <select name="country" required>
+                                    <option value=""></option>
+                                    <option value="Male">Male</option>
+                                    <option value="Male">Female</option>
+                                </select>
+                                <br>
+                                <label for="date">Date: </label><br>
+                                <input type="date" name="date" min="1900-12-02">
+                                <br>
+                                <button type="submit" class ="button">Register</button>
+                                <button type="submit" class ="button">Cancel</button>
+                            </fieldset>
+                        </form>
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
+        </footer>
+    </body>
+</html>

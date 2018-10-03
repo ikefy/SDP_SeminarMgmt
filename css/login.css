@@ -1,0 +1,127 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding:0;
+    margin:0;
+    background-color: #f4f4f4;
+}
+
+/*global*/
+.container{
+    width:80%;
+    margin:auto;
+    overflow: hidden;
+}
+
+/*header*/
+header{
+    background: #354248;
+    color:#ffffff;
+    padding-top:30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+header #login{
+    display: inline;
+    float: right;
+}
+header h1{
+    float: left;
+    margin: 0;
+}
+header .hightlight, header .current a{
+    color: #e8491d;
+    font-weight: bold;
+}
+
+
+/*middlepart*/
+#middlepart {
+    min-height: 400px; /*change the height of the website*/
+    background: url('../img/seminar.JPG') no-repeat 0 -1200px;
+}
+#middlepart #content{
+    text-align: center;
+    color: #ffffff;
+    width:50%;
+    float:right; 
+}
+
+#middlepart .loginbox{
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color: #fff;
+    margin:0 auto;
+    margin-top: 50px;
+    /*top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    position:relative;
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+.loginbox h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.loginbox input{
+    width: 100%;
+    margin-top: 20px;
+}
+.loginbox input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]{
+    border: none;
+    background: #fb2525;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px; /*make the button round*/
+}
+.loginbox input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+.loginbox a:hover{
+    color: #ffc107;
+}
+
+/*footer*/
+footer{
+    padding:20px;
+    color:#ffffff;
+    background-color: #e8491d;
+    text-align: center;
+}
