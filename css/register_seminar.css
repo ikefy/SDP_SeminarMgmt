@@ -76,13 +76,25 @@ header .hightlight, header .current a{
 
 /*register_seminar Page*/
 #middlepart #content #sidebar{
-    float: right;
-    width:40%;
+    float: left;
+    width:30%;
     margin-top: 10px;
+    margin-left: 10px;
+}
+#middlepart #content #sidebar input[type="submit"]{
+    border: none;
+    background: #fb2525;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px; /*make the button round*/
+    width: 45%;
 }
 #middlepart #content #main-col{
     float: left;
     width:50%;
+    margin-left: 10px;
 }
 
 #middlepart #content #searchBox{

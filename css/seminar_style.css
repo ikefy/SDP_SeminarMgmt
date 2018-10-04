@@ -97,6 +97,34 @@ header a:hover{
     width:80%;
     float:right;  
 }
+#middlepart #content .box{
+    text-align: center;
+    width:450px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    margin: auto;
+    margin-top: 5%;
+    color: white;
+    font-family: 'Century Gothic', sans-serif;
+}
+.box-img{
+    border-radius: 50%;
+    widows: 200px;
+    height: 200px;
+}
+.box h5{
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 100;
+}
+.box p{
+    text-align: justify;
+}
+
+#middlepart #content fieldset{
+    width:50%;
+    margin-left: 25%;
+}
 
 #middlepart #content button{
     margin:5px;;
