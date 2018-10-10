@@ -1,7 +1,7 @@
 ﻿var router = require('express').Router();
 var TYPES = require('tedious').TYPES;
 
-/* GET test listing. */
+/* GET user listing. */
 router.get('/user/', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[user] for json path")
@@ -9,7 +9,7 @@ router.get('/user/', function (req, res) {
 
 });
 
-/* GET single test user. */
+/* GET single user. */
 router.get('/user/:id', function (req, res) {
     
     req.sql("SELECT * FROM [dbo].[user] where UserID = @id for json path, without_array_wrapper")
@@ -35,4 +35,11 @@ router.get('/seminar/:id', function (req, res) {
 
 });
 
+router.get('/seminar/:id/attendees', function (req, res) {
+
+    req.sql("SELECT * from [dbo].[registrations] as x RIGHT join [dbo].[attendees] as y on x.RegAttendeeID = y.AttendeeID where RegSeminarID = @id for json path")
+        .param('ID', req.params.id, TYPES.nchar)
+        .into(res, '[]');
+
+});
 module.exports = router;
