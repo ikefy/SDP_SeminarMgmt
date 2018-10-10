@@ -51,66 +51,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </main>
@@ -137,11 +78,7 @@
                     console.log(response);
                     var seminars = response;
                     var seminar_parse = JSON.parse(seminars);
-                    console.log(seminar_parse);
-                    console.log(seminar_parse[0]);
-                    console.log(seminar_parse[0].RoomID);
-                    clearsemtblValues();
-                    setsemtblValues(seminar_parse);
+                    settblvalues(seminar_parse.length, seminar_parse);
                 });
             }
 
@@ -161,22 +98,44 @@
                     console.log(response);
                     var seminars = response;
                     var seminar_parse = JSON.parse(seminars);
-                    console.log(seminar_parse);
-                    console.log(seminar_parse[0]);
-                    console.log(seminar_parse[0].RoomID);
-                    clearsemtblValues();
-                    setsemtblValues(seminar_parse);
+                    var seminar_length = seminar_parse.length;
+                    settblvalues(seminar_parse.length, seminar_parse);
                 });
             }
 
-            function clearsemtblValues() {
+            function settblvalues(x, seminar_parse) {
+                console.log(seminar_parse);
+                console.log(seminar_parse[0]);
+                console.log(seminar_parse[0].RoomID);
+                console.log(seminar_parse.length);
+                cleartbl()
+                createtbl(x);
+                setsemtblValues(seminar_parse);
+            }
+
+            function cleartbl() {
+                var table = document.getElementById("semtbl");
+                var rows = document.getElementById("semtbl").getElementsByTagName("tr").length;
+                console.log(rows);
+                for (var i = 1; i < rows; i++) {
+                    table.deleteRow(1);
+                }
+            }
+
+            function createtbl(x) {
                 console.log("cleartbl");
-                for (var i = 0; i < 9; i++) {
-                    var x = document.getElementById("semtbl").rows[i + 1].cells;
-                    x[0].innerHTML = ".";
-                    x[1].innerHTML = ".";
-                    x[2].innerHTML = ".";
-                    x[3].innerHTML = ".";
+                for (var i = 0; i < x; i++) {
+                    //var x = document.getElementById("semtbl").rows[i + 1].cells;
+                    //x[0].innerHTML = ".";
+                    //x[1].innerHTML = ".";
+                    //x[2].innerHTML = ".";
+                    //x[3].innerHTML = ".";
+                    var table = document.getElementById("semtbl");
+                    var row = table.insertRow(i+1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell1 = row.insertCell(2);
+                    var cell2 = row.insertCell(3);
                 }
             }
 
@@ -185,8 +144,10 @@
                 for (var i = 0; i < seminar_parse.length; i++) {
                     var x = document.getElementById("semtbl").rows[i + 1].cells;
                     x[0].innerHTML = seminar_parse[i].SeminarID;
+                    //var y = document.getElementById(i);
+                    //y.value = seminar_parse[i].SeminarID;
                     x[1].innerHTML = seminar_parse[i].SeminarTitle;
-                    x[2].innerHTML = seminar_parse[i].RoomID;
+                    x[2].innerHTML = seminar_parse[i].RoomNumber;
                     x[3].innerHTML = seminar_parse[i].SeminarDate;
                 }
             }
