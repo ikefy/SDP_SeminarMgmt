@@ -4,7 +4,7 @@ var TYPES = require('tedious').TYPES;
 /* GET test listing. */
 router.get('/users/', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[user] ")
+    req.sql("SELECT * FROM [dbo].[user] for json path")
         .into(res, '[]');
 
 });
