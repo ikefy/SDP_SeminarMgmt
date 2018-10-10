@@ -11,8 +11,6 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use('/api', require('./routes/main'));
-app.use('/api2', require('./routes/semdate'));
-//app.use('/seminar', require('./routes/seminar'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
