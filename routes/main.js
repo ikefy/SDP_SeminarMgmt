@@ -42,4 +42,12 @@ router.get('/seminar/:id/attendees', function (req, res) {
         .into(res, '[]');
 
 });
+
+router.get('/seminar/daterange/:start/:end', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[seminar] where SeminarDate BETWEEN '@start' and '@end' for json path")
+        .param('ID', req.params.id, TYPES.nchar)
+        .into(res, '[]');
+
+});
 module.exports = router;
