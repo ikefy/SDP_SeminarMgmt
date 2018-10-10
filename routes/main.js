@@ -12,7 +12,7 @@ router.get('/test/', function (req, res) {
 /* GET single test user. */
 router.get('/test/:id', function (req, res) {
     
-    req.sql("SELECT * FROM [dbo].[testtbl_1] where ID = @id for json path, without_array_wrapper")
+    req.sql("SELECT * FROM [dbo].[user] where UserID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 
