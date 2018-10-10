@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>CHITCHAT | Welcome</title>
+        <link rel="stylesheet" href="./assets/css/seminar_style.css">
+        <link rel="stylesheet" href="./assets/css/coreui.min.css">
+        <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
+    </head>
+    <body>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <header>
+            <div class="container">
+                <div id="branding">
+                    <h1 class="hightlight">CHITCHAT</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current"><a href="seminar_list.html">Seminar</a></li>
+                        <li><a href="create_seminar.html">Create Seminar</a></li>
+                        <li><a href="index.html">Attendee</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem()">Search</button>
+                </form>
+            </nav>
+        </main>
+        <section id="middlepart">
+            <div class="container">
+                <aside id="sidenav">
+                    <img src="./assets/img/uts.png">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">My Seminars</a></li>
+                            <li><a href="my_profile.html">My Profile</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="app-body">
+                    <main class="main">
+                        <table id="semtbl" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Seminar Name</th>
+                                    <th scope="col">Venue</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </main>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
+        </footer>
+        <script type='text/javascript'>
+            function searchsem() {
+                console.log("start searchsem()")
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://sdpseminarmgmt.azurewebsites.net/api/seminar/",
+                    "method": "GET",
+                    "headers": {
+                        "cache-control": "no-cache",
+                        "postman-token": "3f79c459-fd65-db7e-5d1a-f66cc2ff2cbf"
+                    }
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    var seminars = response;
+                    var seminar_parse = JSON.parse(seminars);
+                    console.log(seminar_parse);
+                    console.log(seminar_parse[0]);
+                    console.log(seminar_parse[0].RoomID);
+                    setsemtblValues(seminar_parse);
+                });
+            }
+            function setsemtblValues(seminar_parse) {
+                for (var i = 0; i < seminar_parse.length; i++) {
+                    var x = document.getElementById("semtbl").rows[i + 1].cells;
+                    x[0].innerHTML = seminar_parse[i].SeminarID;
+                    x[1].innerHTML = seminar_parse[i].SeminarTitle;
+                    x[2].innerHTML = seminar_parse[i].RoomID;
+                    x[3].innerHTML = seminar_parse[i].SeminarDate;
+                }
+            }
+        </script>
+    </body>
+</html>
