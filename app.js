@@ -9,7 +9,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use('/api', require('./routes/main'));
 //app.use('/seminar', require('./routes/seminar'));
 
