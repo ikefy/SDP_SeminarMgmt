@@ -2,7 +2,7 @@
 var TYPES = require('tedious').TYPES;
 
 /* GET test listing. */
-router.get('/', function (req, res) {
+router.get('/test/', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[testtbl_1] ")
         .into(res, '[]');
@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
 });
 
 /* GET single test user. */
-router.get('/:id', function (req, res) {
+router.get('/test/:id', function (req, res) {
     
     req.sql("SELECT * FROM [dbo].[testtbl_1] where ID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
@@ -19,7 +19,7 @@ router.get('/:id', function (req, res) {
 });
 
 /* GET seminar listing. */
-router.get('/seminar', function (req, res) {
+router.get('/seminar/', function (req, res) {
 
     req.sql("SELECT [SeminarID],[SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[RoomID] FROM [dbo].[seminar]")
         .into(res, '{}');
