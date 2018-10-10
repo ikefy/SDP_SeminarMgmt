@@ -2,7 +2,7 @@
 var TYPES = require('tedious').TYPES;
 
 /* GET test listing. */
-router.get('/users/', function (req, res) {
+router.get('/user/', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[user] for json path")
         .into(res, '[]');
@@ -21,8 +21,8 @@ router.get('/user/:id', function (req, res) {
 /* GET seminar listing. */
 router.get('/seminar/', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar]")
-        .into(res, '{}');
+    req.sql("SELECT * FROM [dbo].[seminar]  for json path")
+        .into(res, '[]');
 
 });
 
