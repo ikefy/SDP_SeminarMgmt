@@ -26,7 +26,7 @@ router.get('/seminar/', function (req, res) {
 
 });
 
- GET single seminar. */
+/* GET single seminar. */
 router.get('/seminar/:id', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[seminar] where SeminarID = @id for json path, without_array_wrapper")
