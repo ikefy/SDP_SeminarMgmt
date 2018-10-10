@@ -21,7 +21,7 @@ router.get('/api/user/:id', function (req, res) {
 /* GET seminar listing. */
 router.get('/api/seminar/', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar]  for json path")
+    req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID for json path")
         .into(res, '[]');
 
 });
@@ -45,14 +45,14 @@ router.get('/api/seminar/:id/attendees', function (req, res) {
 /* GET seminars for September. */
 router.get('/api/seminar/daterange/sept', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar] where SeminarDate BETWEEN '2018-09-01' and '2018-09-30' for json path")
+    req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID where SeminarDate BETWEEN '2018-09-01' and '2018-09-30' for json path")
         .into(res, '[]');
 });
 
 /* GET seminars for October. */
 router.get('/api/seminar/daterange/oct', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar] where SeminarDate BETWEEN '2018-10-01' and '2018-10-31' for json path")
+    req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID where SeminarDate BETWEEN '2018-10-01' and '2018-10-31' for json path")
         .into(res, '[]');
 });
 
