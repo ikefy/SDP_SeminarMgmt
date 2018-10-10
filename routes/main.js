@@ -45,7 +45,7 @@ router.get('/seminar/:id/attendees', function (req, res) {
 
 router.get('/seminar/daterange/sept', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[seminar] where SeminarDate BETWEEN '2018-09-01' and '2018-09-30'")
+    req.sql("SELECT * FROM [dbo].[seminar] where SeminarDate BETWEEN '2018-09-01' and '2018-09-30' for json path")
         .into(res, '[]');
 
 });
