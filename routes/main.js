@@ -26,7 +26,7 @@ router.get('/seminar/', function (req, res) {
 
 });
 
-/* GET single seminar. */
+ GET single seminar. */
 router.get('/seminar/:id', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[seminar] where SeminarID = @id for json path, without_array_wrapper")
@@ -42,7 +42,7 @@ router.get('/seminar/:id/attendees', function (req, res) {
         .into(res, '[]');
 
 });
-
+/*
 router.get('/seminar/daterange/sept', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[seminar] where SeminarDate BETWEEN '2018-09-01' and '2018-09-30'")
@@ -51,4 +51,5 @@ router.get('/seminar/daterange/sept', function (req, res) {
         .into(res, '[]');
 
 });
+*/
 module.exports = router;
