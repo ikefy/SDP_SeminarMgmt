@@ -2,7 +2,7 @@
 var TYPES = require('tedious').TYPES;
 
 /* GET test listing. */
-router.get('/test/', function (req, res) {
+router.get('/users/', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[user] ")
         .into(res, '[]');
@@ -10,7 +10,7 @@ router.get('/test/', function (req, res) {
 });
 
 /* GET single test user. */
-router.get('/test/:id', function (req, res) {
+router.get('/user/:id', function (req, res) {
     
     req.sql("SELECT * FROM [dbo].[user] where UserID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
