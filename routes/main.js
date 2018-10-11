@@ -37,7 +37,7 @@ router.get('/api/seminar/:id', function (req, res) {
 /* GET attendees for specific seminar. */
 router.get('/api/seminar/:id/attendees', function (req, res) {
 
-    req.sql("SELECT * from [dbo].[registrations] as x RIGHT join [dbo].[attendees] as y on x.RegAttendeeID = y.AttendeeID where RegSeminarID = @id for json path")
+    req.sql("SELECT * from [dbo].[registrations] as x RIGHT JOIN [dbo].[attendees] as y on x.RegAttendeeID = y.AttendeeID RIGHT JOIN [dbo].[seminar] as z on x.RegSeminarID = z.SeminarID where RegSeminarID = @id for json path")
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 });
