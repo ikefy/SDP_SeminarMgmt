@@ -38,9 +38,12 @@
                 </aside>
                 <div class="app-body">
                     <main class="main">
+                        <br />
                         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem1()">All Seminars</button>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('sept')">September</button>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('oct')">October</button>
+                        <br />
+                        <br />
                         <table id="semtbl" class="table">
                             <thead>
                                 <tr>
@@ -50,10 +53,12 @@
                                     <th scope="col">Date</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
-                            </tbody>
+                            <tbody></tbody>
                         </table>
+                        <form class="form-inline">
+                            <input id="inputtxt" class="form-control mr-sm-2" type="text" value="" placeholder="Enter SeminarID" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(inputtxt.value);">Show Attendees</button>
+                        </form>
                     </main>
                 </div>
             </div>

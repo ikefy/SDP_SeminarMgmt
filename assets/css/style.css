@@ -147,9 +147,12 @@ header a:hover{
 
 /*footer*/
 footer{
-    padding: 20px;
-    margin-top: 20px;
+    padding:10px;
+    margin-top: 10px;
     color:#ffffff;
     background-color: #e8491d;
     text-align: center;
+    position:fixed;
+    bottom:0;
+    width: 100%
 }
