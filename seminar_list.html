@@ -47,7 +47,7 @@
                         <table id="semtbl" class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Seminar ID</th>
                                     <th scope="col">Seminar Name</th>
                                     <th scope="col">Venue</th>
                                     <th scope="col">Date</th>
@@ -55,16 +55,45 @@
                             </thead>
                             <tbody></tbody>
                         </table>
+                        <br />
+                        <br />
                         <form class="form-inline">
-                            <input id="inputtxt" class="form-control mr-sm-2" type="text" value="" placeholder="Enter SeminarID" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(inputtxt.value);">Show Attendees</button>
+                            <input id="SeminarID" class="form-control mr-sm-2" type="text" value="" placeholder="Enter SeminarID" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="getAttendees(SeminarID.value);">Show Attendees</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(SeminarID.value);">Seminar Details</button>
                         </form>
+                        <br />
+                        <table id="attendeetblheader" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Seminar Name: </th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <table id="attendeetbl" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Attendee ID</th>
+                                    <th scope="col">Attendee Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Contact Number</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </main>
                 </div>
             </div>
         </section>
         <footer>
-            <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
+            <p>SDP</p>
         </footer>
         <script type='text/javascript'>
             function searchsem1() {
@@ -83,7 +112,7 @@
                     console.log(response);
                     var seminars = response;
                     var seminar_parse = JSON.parse(seminars);
-                    settblvalues(seminar_parse.length, seminar_parse);
+                    setsemtblvalues(seminar_parse.length, seminar_parse);
                 });
             }
 
@@ -104,18 +133,18 @@
                     var seminars = response;
                     var seminar_parse = JSON.parse(seminars);
                     var seminar_length = seminar_parse.length;
-                    settblvalues(seminar_parse.length, seminar_parse);
+                    setsemtblvalues(seminar_parse.length, seminar_parse);
                 });
             }
 
-            function settblvalues(x, seminar_parse) {
-                console.log(seminar_parse);
-                console.log(seminar_parse[0]);
-                console.log(seminar_parse[0].RoomID);
-                console.log(seminar_parse.length);
-                cleartbl()
+            function setsemtblvalues(x, seminars) {
+                console.log(seminars);
+                console.log(seminars[0]);
+                console.log(seminars[0].RoomID);
+                console.log(seminars.length);
+                cleartbl();
                 createtbl(x);
-                setsemtblValues(seminar_parse);
+                setsemtblCells(seminars);
             }
 
             function cleartbl() {
@@ -144,17 +173,85 @@
                 }
             }
 
-            function setsemtblValues(seminar_parse) {
+            function setsemtblCells(seminars) {
                 console.log("settbl");
-                for (var i = 0; i < seminar_parse.length; i++) {
+                for (var i = 0; i < seminars.length; i++) {
                     var x = document.getElementById("semtbl").rows[i + 1].cells;
-                    x[0].innerHTML = seminar_parse[i].SeminarID;
+                    x[0].innerHTML = seminars[i].SeminarID;
                     //var y = document.getElementById(i);
                     //y.value = seminar_parse[i].SeminarID;
-                    x[1].innerHTML = seminar_parse[i].SeminarTitle;
-                    x[2].innerHTML = seminar_parse[i].RoomNumber;
-                    x[3].innerHTML = seminar_parse[i].SeminarDate;
+                    x[1].innerHTML = seminars[i].SeminarTitle;
+                    x[2].innerHTML = seminars[i].RoomNumber;
+                    x[3].innerHTML = seminars[i].SeminarDate;
                 }
+            }
+        </script>
+        <script type='text/javascript'>
+            function getAttendees(SeminarID) {
+                console.log(SeminarID);
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://sdp-seminarmgmt.azurewebsites.net/api/seminar/" + SeminarID + "/attendees",
+                    "method": "GET",
+                    "headers": {
+                        "cache-control": "no-cache",
+                        "postman-token": "481f3c97-846c-8bc1-e812-ba8d0bd6e7e5"
+                    }
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    var attendees = response;
+                    var attendees_parse = JSON.parse(attendees);
+                    setattendeetblvalues(attendees_parse.length, attendees_parse);
+                });
+            }
+
+            function setattendeetblvalues(y, attendees) {
+                console.log(attendees);
+                console.log(attendees[0]);
+                console.log(attendees[0].AttendeeFirstName);
+                console.log(attendees.length);
+                clearattendeetbl();
+                createattendeetbl(y);
+                setattendeetblCells(attendees);
+            }
+
+            function clearattendeetbl() {
+                var table = document.getElementById("attendeetbl");
+                var rows = document.getElementById("attendeetbl").getElementsByTagName("tr").length;
+                console.log(rows);
+                for (var i = 1; i < rows; i++) {
+                    table.deleteRow(1);
+                }
+            }
+
+            function createattendeetbl(y) {
+                console.log("clearattendeetbl");
+                for (var i = 0; i < y; i++) {
+                    var table = document.getElementById("attendeetbl");
+                    var row = table.insertRow(i + 1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell1 = row.insertCell(2);
+                    var cell2 = row.insertCell(3);
+                }
+            }
+
+            function setattendeetblCells(attendees) {
+                console.log("setattendeetbl");
+                for (var i = 0; i < attendees.length; i++) {
+                    var y = document.getElementById("attendeetbl").rows[i + 1].cells;
+                    y[0].innerHTML = attendees[i].AttendeeID;
+                    //var y = document.getElementById(i);
+                    //y.value = seminar_parse[i].SeminarID;
+                    y[1].innerHTML = attendees[i].AttendeeFirstName + " " + attendees[i].AttendeeLastName;
+                    y[2].innerHTML = attendees[i].AttendeeEmailAddress;
+                    y[3].innerHTML = attendees[i].AttendeePhoneNumber;
+                }
+                var x = document.getElementById("attendeetblheader").rows[0].cells;
+                //x[0].innerHTML = "Seminar Name: " + attendees[0].
             }
         </script>
     </body>
