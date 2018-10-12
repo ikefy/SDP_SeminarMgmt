@@ -56,4 +56,19 @@ router.get('/api/seminar/daterange/oct', function (req, res) {
         .into(res, '[]');
 });
 
+/* GET seminars for October. */
+router.get('/api/seminar/daterange/nov', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID where SeminarDate BETWEEN '2018-11-01' and '2018-11-30' for json path")
+        .into(res, '[]');
+});
+
+/* GET seminars for October. */
+router.get('/api/seminar/daterange/dec', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID where SeminarDate BETWEEN '2018-12-01' and '2018-12-31' for json path")
+        .into(res, '[]');
+});
+
+
 module.exports = router;
