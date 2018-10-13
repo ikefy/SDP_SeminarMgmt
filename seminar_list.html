@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
     </head>
     <body>
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="./assets/js/jquery-3.3.1.min.js"></script>
         <header>
             <div class="container">
                 <div id="branding">
@@ -25,14 +25,6 @@
                 </nav>
             </div>
         </header>
-        <main class="main">
-            <nav class="navbar navbar-light bg-light">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem()">Search</button>
-                </form>
-            </nav>
-        </main>
         <section id="middlepart">
             <div class="container">
                 <aside id="sidenav">
@@ -46,118 +38,63 @@
                 </aside>
                 <div class="app-body">
                     <main class="main">
+                        <br />
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem1()">All Seminars</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('sept')">September</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('oct')">October</button>
+                        <br />
+                        <br />
                         <table id="semtbl" class="table">
                             <thead>
-                                <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Seminar ID</th>
                                     <th scope="col">Seminar Name</th>
                                     <th scope="col">Venue</th>
                                     <th scope="col">Date</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
+                        <br />
+                        <br />
+                        <form class="form-inline">
+                            <input id="SeminarID" class="form-control mr-sm-2" type="text" value="" placeholder="Enter SeminarID" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="getAttendees(SeminarID.value);">Show Attendees</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(SeminarID.value);">Seminar Details</button>
+                        </form>
+                        <br />
+                        <table id="attendeetblheader" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <table id="attendeetbl" class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Attendee ID</th>
+                                    <th scope="col">Attendee Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Contact Number</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </main>
                 </div>
             </div>
         </section>
         <footer>
-            <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
+            <p>SDP</p>
         </footer>
-        <script type='text/javascript'>
-            function searchsem() {
-                console.log("start searchsem()")
-                var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://sdpseminarmgmt.azurewebsites.net/api/seminar/",
-                    "method": "GET",
-                    "headers": {
-                        "cache-control": "no-cache",
-                        "postman-token": "3f79c459-fd65-db7e-5d1a-f66cc2ff2cbf"
-                    }
-                }
-
-                $.ajax(settings).done(function (response) {
-                    console.log(response);
-                    var seminars = response;
-                    var seminar_parse = JSON.parse(seminars);
-                    console.log(seminar_parse);
-                    console.log(seminar_parse[0]);
-                    console.log(seminar_parse[0].RoomID);
-                    setsemtblValues(seminar_parse);
-                });
-            }
-            function setsemtblValues(seminar_parse) {
-                for (var i = 0; i < seminar_parse.length; i++) {
-                    var x = document.getElementById("semtbl").rows[i + 1].cells;
-                    x[0].innerHTML = seminar_parse[i].SeminarID;
-                    x[1].innerHTML = seminar_parse[i].SeminarTitle;
-                    x[2].innerHTML = seminar_parse[i].RoomID;
-                    x[3].innerHTML = seminar_parse[i].SeminarDate;
-                }
-            }
-        </script>
+        <script src="./assets/js/seminar_list_seminars.js" type='text/javascript'></script>
+        <script src="./assets/js/seminar_list_seminarattendees.js" type='text/javascript'></script>
     </body>
 </html>
