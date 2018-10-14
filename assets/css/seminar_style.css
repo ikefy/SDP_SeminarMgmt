@@ -36,11 +36,11 @@ ul{
 
 /*header*/
 header{
-    background: #354248;
+    background: #000000;
     color:#ffffff;
     padding-top:30px;
     min-height: 70px;
-    border-bottom: #e8491d 3px solid;
+    border-bottom: #354248 3px solid;
 }
 
 
@@ -79,6 +79,7 @@ header a:hover{
 #middlepart {
     min-height: 400px; /*change the height of the website*/
     background: url('../img/seminar.JPG');
+    height:100vh;
 }
 #middlepart #sidenav{
     float: left;
@@ -143,7 +144,7 @@ footer{
     padding:10px;
     margin-top: 10px;
     color:#ffffff;
-    background-color: #e8491d;
+    background-color: #000000;
     text-align: center;
     position:fixed;
     bottom:0;
