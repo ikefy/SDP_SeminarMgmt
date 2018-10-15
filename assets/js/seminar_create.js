@@ -1,4 +1,4 @@
-function createAttendee() {
+function createSeminar() {
     $.ajax({
         async: true,
         crossDomain: true,

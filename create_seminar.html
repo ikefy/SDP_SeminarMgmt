@@ -19,6 +19,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="seminar_list.html">Seminar</a></li>
                         <li class="current"><a href="create_seminar.html">Create Seminar</a></li>
+                        <li><a href="register_attendee.html">Register Attendee</a></li>
                     </ul>
                 </nav>
             </div>
@@ -26,7 +27,7 @@
         <section id="middlepart">
             <div class="container">
                 <aside id="sidenav">
-                    <img src="./assets/img/uts.png">                    <nav>
+                    <img src="./assets/img/uts.png"><nav>
                         <ul>
                             <li><a href="index.html">My Seminars</a></li>
                             <li><a href="my_profile.html">My Profile</a></li>
@@ -35,28 +36,42 @@
                 </aside>
                 <div id="content">
                     <div class="dark">
-                        <h1>Create Seminars</h1>
+                        <h1>Create Seminar</h1>
                         <form class="quote">
                             <label>Seminar title</label><br>
-                            <input type="text" placeholder="Enter title..."><br>
+                            <input type="text" id="semTitle" placeholder="Enter title..."><br>
                             <label>Date</label><br>
-                            <input type="date" placeholder="Enter title..."><br>
-                            <label>Start Time</label><br>
-                            <input type="time" placeholder="Enter title..."><br>
-                            <label>End Time</label><br>
-                            <input type="time" placeholder="Enter title..."><br>
-                            <label>Speaker</label><br>
-                            <input type="text"><br>
-                            <label>Room</label><br>
-                            <input type="text"><br>
-                            <label>Detail</label><br>
+                            <input type="text" placeholder="YYYY-MM-DD"><br><br>
+                            <label for="startTime">Start Time: </label>
+                            <select name="startTime" id="startTime" required>
+                                <option value=""></option>
+                                <option value="10:00:00.0000000">10AM</option>
+                                <option value="11:00:00.0000000">11AM</option>
+                                <option value="13:00:00.0000000">1PM</option>
+                                <option value="15:00:00.0000000">3PM</option>
+                            </select><br>
+                            <label for="endTime">End Time: </label>
+                            <select name="endTime" id="endTime" required>
+                                <option value=""></option>
+                                <option value="12:00:00.0000000">12NOON</option>
+                                <option value="13:00:00.0000000">1PM</option>
+                                <option value="15:00:00.0000000">3PM</option>
+                                <option value="17:00:00.0000000">5PM</option>
+                            </select><br>
+                            <label for="roomNum">Room Number:  </label>
+                            <select name="roomNum" id="roomNum" required>
+                                <option value=""></option>
+                                <option value="40000001">CB11.00.205</option>
+                                <option value="40000002">CB05.00.301</option>
+                                <option value="40000003">CB06.03.203</option>
+                                <option value="40000004">CB07.04.306</option>
+                                <option value="40000005">CB01.06.302</option>
+                                <option value="40000006">CB05.03.203</option>
+                                <option value="40000007">CB04.01.102</option>
+                            </select><br>
+                            <label>Description</label><br>
                             <textarea placeholder="Enter details"></textarea><br>
-                            <label>Image</label><br>
-                            <input type="submit" value="Upload Image" name="submit"><br>
-                            <label>Presentation Slide</label><br>
-                            <input type="file" name="fileToUpload" id="fileToUpload"><br>
-                            <button id="btn" type="submit" class ="button_1">Create</button> 
-                            <button id="btn" type="submit" class ="button_1">Cancel</button> 
+                            <button id="btn" onclick="" type="submit" class ="button_1">Create</button> 
                         </form>
                     </div>
                 </div>
@@ -71,5 +86,7 @@
         <footer>
             <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
         </footer>
+        <script src="./assets/js/jquery-3.3.1.min.js"></script>
+        <script src="./assets/js/seminar_create.js"></script>
     </body>
 </html>

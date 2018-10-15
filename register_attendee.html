@@ -11,7 +11,17 @@
 <body>
     <header>
         <div class="container">
-            <h1 class="hightlight"><span>CHITCHAT</span></h1>
+            <div id="branding">
+                <h1 class="hightlight">CHITCHAT</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="seminar_list.html">Seminar</a></li>
+                    <li><a href="create_seminar.html">Create Seminar</a></li>
+                    <li class="current"><a href="register_attendee.html">Register Attendee</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     <section id="middlepart">
@@ -39,12 +49,12 @@
                         <input type=tel name="phone" id="phone" required placeholder="Your phone number" title="Please Enter in your phone number">
                         <br>
                         <label for="gender">Gender: </label><br>
-                        <select name="country" required>
+                        <select name="gender" id="gender" required>
                             <option value=""></option>
                             <option value="MALE">Male</option>
                             <option value="FEMALE">Female</option>
                         </select>
-                        <button type="submit" class="button">Register</button>
+                        <button type="submit" onclick="createAttendee()" class="button">Register</button>
                     </fieldset>
                 </div>
             </div>
@@ -53,6 +63,7 @@
     <footer>
         <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
     </footer>
+    <script src="./assets/js/jquery-3.3.1.min.js"></script>
     <script src="./assets/js/register_attendee.js" type='text/javascript'></script>
 </body>
 </html>
