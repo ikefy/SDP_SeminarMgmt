@@ -2,98 +2,69 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>CHITCHAT | Welcome</title>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <link rel="stylesheet" href="./css/home.css">
-        <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/coreui-icons.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/coreui.min.css">
+        <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="hightlight"><span>CHITCHAT</span></h1>
-                <p id="login">Login</p>
-                <form action="login.html" method="GET" id="login">
-                        <input type="image" src="img/button.jpg" style="width: 50px;height: 50px;">
-                </form>
+                <div id="branding">
+                    <h1 class="hightlight">CHITCHAT</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li class="nav-item"><a href="seminar_list.html">Seminars</a></li>
+                        <li class="nav-item"><a href="create_seminar.html">Create Seminar</a></li>
+                        <li class="nav-item"><a href="index.html">Attendee</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
-        <section id="middlepart">
+        <section id="showcase">
             <div class="container">
                 <aside id="sidenav">
-                    <img src="./img/uts.png">
+                    <img src="./assets/img/uts.png">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">My Seminars</a></li>
+                            <li><a href="my_profile.html">My Profile</a></li>
+                        </ul>
+                    </nav>
                 </aside>
-                <div id="content">
-                    <div id="searchBox">
 
-                        <!--<form action="seminar_result.html" method="GET"></form>*/-->
-
-                        <h1>Find Your Next Seminar</h1>
-                        <input type="text" id="smrID" value="" name="text" class="search" placeholder="Search by SeminarID">
-                        OR
-                        <input type="date" name="text" class="search" placeholder="Search by Date">
-                        <input type="image" src="img/search-icon.png" onclick="getSeminar(smrID.value);" style="width: 50px;height: 50px;">
-
-                    </div>
-                    <div>
-                        <fieldset class="availableSeminar">
-                            <img src="img/image_here.png" style="width: 15%">
-                            <p>The Capabilities of Artificial Intelligence</p>
-                            <p>Sun. Sep 16, 2:00pm</p>
-                            <p>UTS Building 11-B11.04.400, City Campus</p>
-                        </fieldset>
-                        <fieldset class="availableSeminar">
-                            <img src="img/image_here.png" style="width: 15%">
-                            <p>The Capabilities of Artificial Intelligence</p>
-                            <p>Sun. Sep 16, 2:00pm</p>
-                            <p>UTS Building 11-B11.04.400, City Campus</p>
-                        </fieldset>
-                        <fieldset class="availableSeminar">
-                            <img src="img/image_here.png" style="width: 15%">
-                            <p>The Capabilities of Artificial Intelligence</p>
-                            <p>Sun. Sep 16, 2:00pm</p>
-                            <p>UTS Building 11-B11.04.400, City Campus</p>
-                        </fieldset>
-                        <fieldset class="availableSeminar">
-                            <img src="img/image_here.png" style="width: 15%">
-                            <p>The Capabilities of Artificial Intelligence</p>
-                            <p>Sun. Sep 16, 2:00pm</p>
-                            <p>UTS Building 11-B11.04.400, City Campus</p>
-                        </fieldset>
-                    </div>
+            </div>
+        </section>
+        <section id="newsletter">
+            <div class="container">
+                <h1>Subscribe to our Webpage</h1> 
+                <form> <input type="email" placeholder="Enter Email..."> <button type="submit" class ="button_1">Subscribe</button> </form>
+            </div>
+        </section>
+        <section id="boxes">
+            <div class="container">
+                <div class="box">
+                    <img src="./assets/img/logo_html.png">
+                    <h3>HTML Markup</h3>
+                    <p>A</p>
+                </div>
+                <div class="box">
+                    <img src="./assets/img/logo_html.png">
+                    <h3>CSS3 Styleing</h3>
+                    <p>B</p>
+                </div>
+                <div class="box">
+                    <img src="./assets/img/logo_html.png">
+                    <h3>Graphic Design</h3>
+                    <p>C</p>
                 </div>
             </div>
         </section>
         <footer>
-            <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
+            <p>SDP</p>
         </footer>
-        <script type="text/javascript">
-
-            function getSeminar(SeminarID) {
-                console.log(SeminarID);
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://sdpseminarmgmt.azurewebsites.net/seminar/" + SeminarID,
-                "method": "GET",
-                "headers": {
-                    "cache-control": "no-cache",
-                    "postman-token": "3199e446-f71e-06ec-8a8f-15c9145cc4a6"
-                }
-            }
-            $.ajax(settings).done(function (response) {
-                console.log(response);
-                var seminar = response;
-                var seminar_parsed = JSON.parse(seminar);
-                console.log(seminar_parsed.SeminarTitle);
-                setSeminarTitle(seminar_parsed.SeminarTitle);
-            });
-            }
-            function setSeminarTitle(smrName) {
-
-            }
-        </script>
     </body>
 </html>
