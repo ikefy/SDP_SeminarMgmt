@@ -11,7 +11,6 @@ router.post('/test/', function (req, res) {
         .exec(res);
 });
 
-
 /* GET user listing. */
 router.get('/api/user/', function (req, res) {
     req.sql("SELECT * FROM [dbo].[user] for json path")
@@ -51,12 +50,41 @@ router.post('/api/attendees', function (req, res) {
         .exec(res);
 });
 
+router.post('/api/booking', function (req, res) {
+    req.sql("INSERT INTO [dbo].[booking]([BookingStatus],[SeminarID],[RoomID],[UserID])VALUES(@BookingStatus,@SeminarID,@RoomID,@UserID)")
+    .param('BookingStatus', req.body.BookingStatus, TYPES.nchar)
+    .param('SeminarID', req.body.SeminarID, TYPES.nchar)
+    .param('RoomID', req.body.RoomID, TYPES.nchar)
+    .param('UserID', req.body.UserID, TYPES.nchar)
+        .exec(res);
+});
+
+router.post('/api/registration', function (req, res) {
+    req.sql("INSERT INTO [dbo].[registrations]([DateRegistered],[RegAttendeeID],[RegSeminarID])VALUES(@DateRegistered,@RegAttendeeID,@RegSeminarID)")
+    .param('DateRegistered', req.body.DateRegistered, TYPES.nchar)
+    .param('RegAttendeeID', req.body.RegAttendeeID, TYPES.nchar)
+    .param('RegSeminarID', req.body.RegSeminarID, TYPES.nchar)
+        .exec(res);
+});
+
 /* GET seminar listing. */
 router.get('/api/seminar/', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID for json path")
         .into(res, '[]');
 
+});
+
+router.post('/api/seminar/', function (req, res) {
+    req.sql("INSERT INTO [dbo].[seminar]([SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[SemRoomID],[SemDescription])VALUES(@SeminarTitle,@SeminarDate,@SeminarStartTime,@SeminarEndTime,@SeminarStatus,@SemRoomID,@SemDescription)")
+    .param('SeminarTitle', req.body.SeminarTitle, TYPES.nchar)
+    .param('SeminarDate', req.body.SeminarDate, TYPES.nchar)
+    .param('SeminarStartTime', req.body.SeminarStartTime, TYPES.nchar)
+    .param('SeminarEndTime', req.body.SeminarEndTime, TYPES.nchar)
+    .param('SeminarStatus', req.body.SeminarStatus, TYPES.nchar)
+    .param('SemRoomID', req.body.SemRoomID, TYPES.nchar)
+    .param('SemDescription', req.body.SemDescription, TYPES.nchar)
+        .exec(res);
 });
 
 /* GET single seminar. */
@@ -74,7 +102,6 @@ router.get('/api/seminar/:id/attendees', function (req, res) {
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 });
-
 
 
 /* GET seminars for September. */
@@ -103,17 +130,6 @@ router.get('/api/seminar/daterange/dec', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID where SeminarDate BETWEEN '2018-12-01' and '2018-12-31' for json path")
         .into(res, '[]');
-});
-
-router.post('/api/seminar/:id', function (req, res) {
-
-
-});
-
-router.put('/api/seminar/:id', function (req, res) {
-
-
-
 });
 
 module.exports = router;
