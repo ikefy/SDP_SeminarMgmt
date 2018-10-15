@@ -43,7 +43,7 @@ router.get('/api/user/login/:username/:password', function (req, res) {
 
     req.sql("SELECT * FROM [dbo].[user] where UserLogin = @username and UserPassword = @password")
         .param('username', req.params.username, TYPES.nchar)
-        .param('password', req.params.username, TYPES.nchar)
+        .param('password', req.params.password, TYPES.nchar)
         .into(res, '[]');
 });
 
