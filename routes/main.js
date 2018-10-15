@@ -39,6 +39,12 @@ router.get('/api/user/:id', function (req, res) {
         .into(res, '[]');
 });
 
+router.get('/api/user/login/:username/:password', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[user] where UserLogin = '@username' and UserPassword = '@password' for json path, without_array_wrapper")
+        .into(res, '[]');
+});
+
 router.post('/api/attendees', function (req, res) {
     req.sql("INSERT INTO [dbo].[attendees] ([AttendeeFirstName],[AttendeeLastName],[AttendeeEmailAddress],[AttendeeDateOfBirth],[AttendeePhoneNumber],[AttendeeGender])VALUES(@AttendeeFirstName,@AttendeeLastName,@AttendeeEmailAddress,@AttendeeDateOfBirth,@AttendeePhoneNumber,@AttendeeGender)")
     .param('AttendeeFirstName', req.body.AttendeeFirstName, TYPES.nchar)
