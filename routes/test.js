@@ -1,9 +1,9 @@
 ﻿var router = require('express').Router();
 var TYPES = require('tedious').TYPES;
 
-router.get('/1/', function (req, res) {req.sql("SELECT * FROM [dbo].[testtbl_1] for json path").into(res, '[]');});
+router.get('/', function (req, res) {req.sql("SELECT * FROM [dbo].[testtbl_1] for json path").into(res, '[]');});
 
-router.get('/test', function (req, res) {
+routerpost('/test', function (req, res) {
     req.sql("INSERT INTO [dbo].[testtbl_1] ([ID],[FirstName],[LastName]) VALUES ('3','Z','Z')")
         .exec(res);
 });
