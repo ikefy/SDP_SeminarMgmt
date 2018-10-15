@@ -3,14 +3,6 @@ var TYPES = require('tedious').TYPES;
 
 router.get('/', function (req, res) {req.sql("SELECT * FROM [dbo].[testtbl_1] for json path").into(res, '[]');});
 
-router.post('/test', function (req, res) {
-    var test = {
-
-    };
-    req.sql("[dbo].[spinsertTest]")
-    .exec(res);
-});
-
 /* GET user listing. */
 router.get('/api/user/', function (req, res) {
     req.sql("SELECT * FROM [dbo].[user] for json path")
@@ -80,18 +72,12 @@ router.get('/api/seminar/daterange/dec', function (req, res) {
 
 router.post('/api/seminar/:id', function (req, res) {
 
-    req.sql("exec createTodo @todo")
-        .param('[dbo].[seminar]', req.body, TYPES.NVarChar)
-        .exec(res);
 
 });
 
 router.put('/api/seminar/:id', function (req, res) {
 
-    req.sql("exec updateTodo @id, @todo")
-        .param('id', req.params.id, TYPES.Int)
-        .param('[dbo].[seminar]', req.body, TYPES.NVarChar)
-        .exec(res);
+
 
 });
 
