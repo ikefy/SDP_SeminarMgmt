@@ -4,7 +4,7 @@ var TYPES = require('tedious').TYPES;
 router.get('/', function (req, res) {req.sql("SELECT * FROM [dbo].[testtbl_1] for json path").into(res, '[]');});
 
 router.post('/test', function (req, res) {
-    req.sql("USE [SDP_SeminarMgmt] GO DECLARE @RC int DECLARE @ID nchar(10) DECLARE @FirstName nchar(10) DECLARE @LastName nchar(10) DECLARE @Birthday date -- TODO: Set parameter values here. EXECUTE @RC = [dbo].[spinsertTest] @ID = "1235",@FirstName = "BAAAATMAAN",@LastName = "BAAAATMAAN",@Birthday = '2011-09-15'GO")
+    req.sql("EXECUTE [dbo].[spinsertTest]")
         .exec(res);
 
 });
