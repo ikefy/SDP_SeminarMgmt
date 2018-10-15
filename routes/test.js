@@ -18,13 +18,25 @@ router.get('/api/user/', function (req, res) {
         .into(res, '[]');
 });
 
+router.post('/api/user/', function (req, res) {
+    req.sql("INSERT INTO [dbo].[user] ([UserLogin],[UserPassword],[UserLastName],[UserFirstName],[UserEmailAddress],[UserDateOfBirth],[UserRole],[UserPhoneNumber],[UserGender])VALUES(@UserLogin,@UserPassword,@UserLastName,@UserFirstName,@UserEmailAddress,@UserDateOfBirth,@UserRole,@UserPhoneNumber,@UserGender)")
+    .param('UserLogin', req.body.UserLogin, TYPES.nchar)
+    .param('UserPassword', req.body.UserPassword, TYPES.nchar)
+    .param('UserLastName', req.body.UserLastName, TYPES.nchar)
+    .param('UserEmailAddress', req.body.UserEmailAddress, TYPES.nchar)
+    .param('UserDateOfBirth', req.body.UserDateOfBirth, TYPES.nchar)
+    .param('UserRole', req.body.UserRole, TYPES.nchar)
+    .param('UserPhoneNumber', req.body.UserPhoneNumber, TYPES.nchar)
+    .param('UserGender', req.body.UserGender, TYPES.nchar)
+        .exec(res);
+});
+
 /* GET single user. */
 router.get('/api/user/:id', function (req, res) {
     
     req.sql("SELECT * FROM [dbo].[user] where UserID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
-
 });
 
 /* GET seminar listing. */
