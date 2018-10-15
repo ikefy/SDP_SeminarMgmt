@@ -10,7 +10,9 @@ app.use(function (req, res, next) {
 });
 
 app.use(bodyParser.json());
-app.use('/', require('./routes/main'));
+//app.use('/', require('./routes/main'));
+app.use('/', require('./routes/test'));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

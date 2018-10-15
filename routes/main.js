@@ -3,14 +3,6 @@ var TYPES = require('tedious').TYPES;
 
 router.get('/', function (req, res) {req.sql("SELECT * FROM [dbo].[testtbl_1] for json path").into(res, '[]');});
 
-router.post('/test', function (req, res) {
-    var test = {
-
-    };
-    req.sql("[dbo].[spinsertTest]")
-    .exec(res);
-});
-
 /* GET user listing. */
 router.get('/api/user/', function (req, res) {
     req.sql("SELECT * FROM [dbo].[user] for json path")
