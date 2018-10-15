@@ -40,6 +40,17 @@ router.get('/api/user/:id', function (req, res) {
         .into(res, '[]');
 });
 
+router.post('/api/attendees', function (req, res) {
+    req.sql("INSERT INTO [dbo].[attendees] ([AttendeeFirstName],[AttendeeLastName],[AttendeeEmailAddress],[AttendeeDateOfBirth],[AttendeePhoneNumber],[AttendeeGender])VALUES(@AttendeeFirstName,@AttendeeLastName,@AttendeeEmailAddress,@AttendeeDateOfBirth,@AttendeePhoneNumber,@AttendeeGender)")
+    .param('AttendeeFirstName', req.body.AttendeeFirstName, TYPES.nchar)
+    .param('AttendeeLastName', req.body.AttendeeLastName, TYPES.nchar)
+    .param('AttendeeEmailAddress', req.body.AttendeeEmailAddress, TYPES.nchar)
+    .param('AttendeeDateOfBirth', req.body.AttendeeDateOfBirth, TYPES.nchar)
+    .param('AttendeePhoneNumber', req.body.AttendeePhoneNumber, TYPES.nchar)
+    .param('AttendeeGender', req.body.AttendeeGender, TYPES.nchar)
+        .exec(res);
+});
+
 /* GET seminar listing. */
 router.get('/api/seminar/', function (req, res) {
 
@@ -63,6 +74,8 @@ router.get('/api/seminar/:id/attendees', function (req, res) {
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 });
+
+
 
 /* GET seminars for September. */
 router.get('/api/seminar/daterange/sep', function (req, res) {
