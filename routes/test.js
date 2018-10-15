@@ -22,6 +22,7 @@ router.post('/api/user/', function (req, res) {
     req.sql("INSERT INTO [dbo].[user] ([UserLogin],[UserPassword],[UserLastName],[UserFirstName],[UserEmailAddress],[UserDateOfBirth],[UserRole],[UserPhoneNumber],[UserGender])VALUES(@UserLogin,@UserPassword,@UserLastName,@UserFirstName,@UserEmailAddress,@UserDateOfBirth,@UserRole,@UserPhoneNumber,@UserGender)")
     .param('UserLogin', req.body.UserLogin, TYPES.nchar)
     .param('UserPassword', req.body.UserPassword, TYPES.nchar)
+    .param('UserFirstName', req.body.UserPassword, TYPES.nchar)
     .param('UserLastName', req.body.UserLastName, TYPES.nchar)
     .param('UserEmailAddress', req.body.UserEmailAddress, TYPES.nchar)
     .param('UserDateOfBirth', req.body.UserDateOfBirth, TYPES.nchar)
