@@ -39,8 +39,10 @@
                     <main class="main">
                         <br />
                         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem1()">All Seminars</button>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('sept')">September</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('sep')">September</button>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('oct')">October</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('nov')">November</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchsem2('dec')">December</button>
                         <br />
                         <br />
                         <table id="semtbl" class="table">
@@ -58,7 +60,7 @@
                         <form class="form-inline">
                             <input id="SeminarID" class="form-control mr-sm-2" type="text" value="" placeholder="Enter SeminarID" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="getAttendees(SeminarID.value);">Show Attendees</button>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="jcquery(SeminarID.value);">Seminar Details</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showSeminarDetail(SeminarID.value);">Seminar Details</button>
                         </form>
                         <br />
                         <table id="attendeetblheader" class="table">
