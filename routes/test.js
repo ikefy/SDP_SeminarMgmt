@@ -3,7 +3,7 @@ var TYPES = require('tedious').TYPES;
 
 router.get('/', function (req, res) {req.sql("SELECT * FROM [dbo].[testtbl_1] for json path").into(res, '[]');});
 
-router.post('/test', function (req, res) {
+router.post('/test/', function (req, res) {
     req.sql("INSERT INTO [dbo].[testtbl_1] ([ID],[FirstName],[LastName]) VALUES ('4','Z','Z')")
         .exec(res);
 });
