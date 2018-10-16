@@ -41,7 +41,7 @@ router.get('/api/user/:id', function (req, res) {
 
 router.get('/api/user/login/:username/:password', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[user] where UserLogin = @username and UserPassword = @password for json path, without_array_wrapper")
+    req.sql("SELECT * FROM [dbo].[user] where UserLogin = @username COLLATE SQL_Latin1_General_CP1_CS_AS and UserPassword = @password COLLATE SQL_Latin1_General_CP1_CS_AS for json path, without_array_wrapper")
         .param('username', req.params.username, TYPES.nchar)
         .param('password', req.params.password, TYPES.nchar)
         .into(res, '[]');
