@@ -2,13 +2,14 @@ function user_login(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     console.log(username + password);
+    getUser(username, password);
 }
 
-function getUsers() {
+function getUser(u,p) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://sdp-seminarmgmt.azurewebsites.net/api/user",
+        "url": "https://sdp-seminarmgmt.azurewebsites.net/api/user/login/" + u + '/' + p,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
