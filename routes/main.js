@@ -59,11 +59,12 @@ router.post('/api/attendees', function (req, res) {
 });
 
 router.post('/api/booking', function (req, res) {
-    req.sql("INSERT INTO [dbo].[booking]([BookingStatus],[SeminarID],[RoomID],[UserID])VALUES(@BookingStatus,@SeminarID,@RoomID,@UserID)")
+    req.sql("INSERT INTO [dbo].[booking]([BookingStatus],[SeminarID],[RoomID],[UserID])VALUES(@BookingStatus,@SeminarID,@RoomID,@UserID,@HostID)")
     .param('BookingStatus', req.body.BookingStatus, TYPES.nchar)
     .param('SeminarID', req.body.SeminarID, TYPES.nchar)
     .param('RoomID', req.body.RoomID, TYPES.nchar)
     .param('UserID', req.body.UserID, TYPES.nchar)
+    .param('HostID', req.body.HostID, TYPES.nchar)
         .exec(res);
 });
 
@@ -84,7 +85,7 @@ router.get('/api/seminar/', function (req, res) {
 });
 
 router.post('/api/seminar/', function (req, res) {
-    req.sql("INSERT INTO [dbo].[seminar]([SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[SemRoomID],[SemDescription])VALUES(@SeminarTitle,@SeminarDate,@SeminarStartTime,@SeminarEndTime,@SeminarStatus,@SemRoomID,@SemDescription)")
+    req.sql("INSERT INTO [dbo].[seminar]([SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[SemRoomID],[SemDescription],[SpeakerName],[SpeakerDescription])VALUES(@SeminarTitle,@SeminarDate,@SeminarStartTime,@SeminarEndTime,@SeminarStatus,@SemRoomID,@SemDescription,@SpeakerName,@SpeakerDescription)")
     .param('SeminarTitle', req.body.SeminarTitle, TYPES.nchar)
     .param('SeminarDate', req.body.SeminarDate, TYPES.nchar)
     .param('SeminarStartTime', req.body.SeminarStartTime, TYPES.nchar)
@@ -92,6 +93,8 @@ router.post('/api/seminar/', function (req, res) {
     .param('SeminarStatus', req.body.SeminarStatus, TYPES.nchar)
     .param('SemRoomID', req.body.SemRoomID, TYPES.nchar)
     .param('SemDescription', req.body.SemDescription, TYPES.nchar)
+    .param('SpeakerName', req.body.SpeakerName, TYPES.nchar)
+    .param('SpeakerDescription', req.body.SpeakerDescription, TYPES.nchar)
         .exec(res);
 });
 
