@@ -7,7 +7,7 @@ function onload() {
 }
 
 function showSeminarDetail(SeminarID) {
-    window.open('seminar_detail.html'+'?semID='+ SeminarID, '_self', false);
+    window.open('user_seminar_detail.html' + '?semID=' + SeminarID, '_self', false);
 }
 
 function getSeminarDetails(SeminarID) {

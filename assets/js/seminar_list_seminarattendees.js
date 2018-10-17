@@ -60,6 +60,7 @@ function setattendeetblCells(attendees) {
         y[1].innerHTML = attendees[i].AttendeeFirstName + " " + attendees[i].AttendeeLastName;
         y[2].innerHTML = attendees[i].AttendeeEmailAddress;
         y[3].innerHTML = attendees[i].AttendeePhoneNumber;
+        document.getElementById("attendeeCount").innerHTML = i+1;
     }
     var x = document.getElementById("attendeetblheader").rows[0].cells;
     x[0].innerHTML = attendees[0].SeminarTitle;
