@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./assets/css/coreui.min.css">
         <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
     </head>
-    <body>
+    <body onload="pageLoad()">
         <header>
             <div class="container">
                 <div id="branding">
@@ -22,9 +22,10 @@
                         <li class="nav-item"><a href="user_register_attendee.html">Register Attendee</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div align="right">
-                <h3 id="user">---</h3><button id="logout" onclick="user_logout()" type="button" class="button_1">Logout</button>
+                <div align="right">
+                    <h3 id="user">---</h3>
+                    <button id="logout" onclick="user_logout()" type="button" class="button_1">Logout</button>
+                </div>
             </div>
         </header>
         <section id="showcase">
@@ -39,31 +40,6 @@
                     </nav>
                 </aside>
 
-            </div>
-        </section>
-        <section id="newsletter">
-            <div class="container">
-                <h1>Subscribe to our Webpage</h1> 
-                <form> <input type="email" placeholder="Enter Email..."> <button type="submit" class ="button_1">Subscribe</button> </form>
-            </div>
-        </section>
-        <section id="boxes">
-            <div class="container">
-                <div class="box">
-                    <img src="./assets/img/logo_html.png">
-                    <h3>HTML Markup</h3>
-                    <p>A</p>
-                </div>
-                <div class="box">
-                    <img src="./assets/img/logo_html.png">
-                    <h3>CSS3 Styleing</h3>
-                    <p>B</p>
-                </div>
-                <div class="box">
-                    <img src="./assets/img/logo_html.png">
-                    <h3>Graphic Design</h3>
-                    <p>C</p>
-                </div>
             </div>
         </section>
         <footer>

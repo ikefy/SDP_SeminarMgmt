@@ -1,4 +1,9 @@
 function createSeminar() {
+    createSem();
+    createBooking();
+}
+
+function createSem() {
     $.ajax({
         async: true,
         crossDomain: true,
@@ -22,4 +27,8 @@ function createSeminar() {
     }).done(function (response) {
         console.log(response + "sem created");
     });
+}
+
+function createBooking() {
+    
 }

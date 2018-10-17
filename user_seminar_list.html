@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./assets/css/coreui.min.css">
         <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
     </head>
-    <body>
+    <body onload="pageLoad()">
         <header>
             <div class="container">
                 <div id="branding">
@@ -22,9 +22,9 @@
                         <li><a href="user_register_attendee.html">Register Attendee</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div align="right">
-                <h3 id="user">---</h3><button id="logout" onclick="user_logout()" type="button" class="button_1">Logout</button>
+                <div align="right">
+                    <h3 id="user">---</h3><button id="logout" onclick="user_logout()" type="button" class="button_1">Logout</button>
+                </div>
             </div>
         </header>
         <section id="middlepart">

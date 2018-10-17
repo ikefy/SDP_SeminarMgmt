@@ -4,6 +4,7 @@ function onload() {
     var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
     getSeminarDetails(semID);
     getAttendees(semID);
+    pageLoad();
 }
 
 function showSeminarDetail(SeminarID) {

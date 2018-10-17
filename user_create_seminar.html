@@ -12,7 +12,7 @@
         <header>
             <div class="container">
                 <div id="branding">
-                    <h1 class="hightlight"></span>CHITCHAT</h1>
+                    <h1 class="hightlight">CHITCHAT</h1>
                 </div>
                 <nav>
                     <ul>
@@ -41,29 +41,29 @@
                     <div class="dark">
                         <h1>Create Seminar</h1>
                         <form class="quote">
-                            <label>Seminar title</label><br>
+                            <!--<label>Seminar title</label><br>-->
                             <input type="text" id="semTitle" placeholder="Enter title..."><br>
-                            <label>Date</label><br>
+                            <!--<label>Date</label><br>-->
                             <input type="text" id="semDate" placeholder="YYYY-MM-DD"><br><br>
-                            <label for="startTime">Start Time: </label>
-                            <select name="startTime" id="startTime" required>
-                                <option value=""></option>
+                            <label >Start Time: </label>
+                            <select id="startTime" required>
+                                <option value="">Select an option</option>
                                 <option value="10:00:00.0000000">10AM</option>
                                 <option value="11:00:00.0000000">11AM</option>
                                 <option value="13:00:00.0000000">1PM</option>
                                 <option value="15:00:00.0000000">3PM</option>
                             </select><br>
-                            <label for="endTime">End Time: </label>
-                            <select name="endTime" id="endTime" required>
-                                <option value=""></option>
+                            <label >End Time: </label>
+                            <select id="endTime" required>
+                                <option value="">Select an option</option>
                                 <option value="12:00:00.0000000">12NOON</option>
                                 <option value="13:00:00.0000000">1PM</option>
                                 <option value="15:00:00.0000000">3PM</option>
                                 <option value="17:00:00.0000000">5PM</option>
                             </select><br>
-                            <label for="roomNum">Room Number:  </label>
-                            <select name="roomNum" id="roomNum" required>
-                                <option value=""></option>
+                            <label>  Room Number: </label>
+                            <select id="roomNum" required>
+                                <option value="">Select an option</option>
                                 <option value="40000001">CB11.00.205</option>
                                 <option value="40000002">CB05.00.301</option>
                                 <option value="40000003">CB06.03.203</option>
@@ -72,9 +72,18 @@
                                 <option value="40000006">CB05.03.203</option>
                                 <option value="40000007">CB04.01.102</option>
                             </select><br>
-                            <label>Description</label><br>
-                            <textarea id="semDescription" placeholder="Enter details"></textarea><br>
-                            <button id="btn" onclick="createSeminar()" type="button" class ="button_1">Create</button> 
+                            <label >Host: </label>
+                            <select id="host" required>
+                                <option value="">Select an option</option>
+                                <option value="40000001">CB11.00.205</option>
+                                <option value="40000002">CB05.00.301</option>
+                                <option value="40000003">CB06.03.203</option>
+                            </select><br>
+                            <!--<label>Description</label>-->
+                            <textarea id="semDescription" placeholder="Enter description"></textarea><br>
+                            <input type="text" id="speakerName" placeholder="Enter speaker name"><br>
+                            <textarea id="speakerDescription" placeholder="Enter speaker details"></textarea><br>
+                            <br><button id="btn" onclick="createSeminar()" type="button" class="button_1">Create</button>
                         </form>
                     </div>
                 </div>
@@ -87,7 +96,7 @@
         <br />
         <br />
         <footer>
-            <p>CHITCHAT Web Design, Copyright &copy; 2017</p>
+            <p>SDP 2018</p>
         </footer>
         <script src="./assets/js/jquery-3.3.1.min.js"></script>
         <script src="./assets/js/seminar_create.js"></script>
