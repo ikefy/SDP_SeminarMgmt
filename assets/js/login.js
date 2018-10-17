@@ -5,6 +5,17 @@ function user_login() {
     getUser(username, password);
 }
 
+function pageLoad() {
+    document.getElementById("user").innerHTML = localStorage.u;
+}
+
+function user_logout() {
+    localStorage.removeItem("uid");
+    localStorage.removeItem("u");
+    localStorage.removeItem("p");
+    window.open('index.html', '_self', false);
+}
+
 function getUser(username, password) {
     var settings = {
         "async": true,
@@ -24,7 +35,7 @@ function getUser(username, password) {
         localStorage.setItem("uid", login_parse.UserID);
         localStorage.setItem("u", login_parse.UserLogin);
         localStorage.setItem("p", login_parse.UserPassword);
-        console.log(localStorage.uid + localStorage.u + localStorage.p);
+        console.log("  " + localStorage.uid + localStorage.u + localStorage.p);
         //uid = login_parse.UserID;
         if (login_parse.UserID != null)
             userLogin_btn();
@@ -35,5 +46,5 @@ function getUser(username, password) {
 
 function userLogin_btn() {
     console.log("XX");
-
+    window.open('user_home.html', '_self', false);
 }

@@ -2,7 +2,7 @@ function createSeminar() {
     $.ajax({
         async: true,
         crossDomain: true,
-        url: "https://sdp-seminarmgmt.azurewebsites.net/api/attendees",
+        url: "https://sdp-seminarmgmt.azurewebsites.net/api/seminar/",
         method: "POST",
         headers: {
             'content-type': "application/json",
@@ -11,14 +11,15 @@ function createSeminar() {
         },
         processData: false,
         data: JSON.stringify({
-            "AttendeeFirstName": document.getElementById("firstName").value,
-            "AttendeeLastName": document.getElementById("lastName").value,
-            "AttendeeEmailAddress": document.getElementById("email").value,
-            "AttendeeDateOfBirth": document.getElementById("dob").value,
-            "AttendeePhoneNumber": document.getElementById("phone").value,
-            "AttendeeGender": document.getElementById("gender").value
+            "SeminarTitle": document.getElementById("semTitle").value,
+            "SeminarDate": document.getElementById("semDate").value,
+            "SeminarStartTime": document.getElementById("startTime").value,
+            "SeminarEndTime": document.getElementById("endTime").value,
+            "SeminarStatus": "SOON",
+            "SemRoomID": document.getElementById("roomNum").value,
+            "SemDescription": document.getElementById("semDescription").value
         })
     }).done(function (response) {
-        console.log(response);
+        console.log(response + "sem created");
     });
 }
