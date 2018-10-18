@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./assets/css/coreui.min.css">
         <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
     </head>
-    <body onload="onload()">
+    <body onload="onloadAttendee()">
         <script src="./assets/js/jquery-3.3.1.min.js"></script>
         <header>
             <div class="container">
@@ -17,8 +17,8 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="user_home.html">Home</a></li>
-                        <li class="current"><a href="user_seminar_list.html">Seminar</a></li>
+                        <li><a href="attendee_home.html">Home</a></li>
+                        <li class="current"><a href="attendee_seminar_list.html">Seminar</a></li>
                     </ul>
                 </nav>
                 <div align="right">
@@ -44,6 +44,7 @@
                                     <th scope="col">Attendee Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Contact Number</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>

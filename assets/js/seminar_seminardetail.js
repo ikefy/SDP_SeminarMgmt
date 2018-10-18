@@ -7,6 +7,14 @@ function onload() {
     pageLoad();
 }
 
+function onloadAttendee() {
+    var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
+    getSeminarDetails(semID);
+    getAttendees(semID);
+    pageLoad();
+    setStatus();
+}
+
 function update() {
     var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
     console.log("update" + semID);
