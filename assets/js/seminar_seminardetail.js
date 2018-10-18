@@ -12,7 +12,6 @@ function onloadAttendee() {
     getSeminarDetails(semID);
     getAttendees(semID);
     pageLoad();
-    setStatus();
 }
 
 function update() {
