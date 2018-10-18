@@ -126,6 +126,14 @@ router.get('/api/seminar/:id', function (req, res) {
         .into(res, '[]');
 });
 
+router.delete('/api/seminar/:id', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[seminar] as x RIGHT JOIN [dbo].[room] as y on x.SemRoomID = y.RoomID for json path")
+        .param('ID', req.params.id, TYPES.Int)
+        .into(res, '[]');
+
+});
+
 router.put('/api/seminar/:id', function (req, res) {
 
     req.sql("UPDATE [dbo].[seminar] SET [SeminarTitle] = @SeminarTitle,[SeminarDate] = @SeminarDate,[SeminarStartTime] = @SeminarStartTime,[SeminarEndTime] = @SeminarEndTime,[SeminarStatus] = @SeminarStatus,[SemRoomID] = @SemRoomID,[SemDescription] = @SemDescription,[SpeakerName] = @SpeakerName,[SpeakerDescription] = @SpeakerDescription WHERE SeminarID = @id")
