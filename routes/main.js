@@ -104,10 +104,11 @@ router.delete('/api/booking/:id', function (req, res) {
 });
 
 router.post('/api/registration', function (req, res) {
-    req.sql("INSERT INTO [dbo].[registrations]([DateRegistered],[RegAttendeeID],[RegSeminarID])VALUES(@DateRegistered,@RegAttendeeID,@RegSeminarID)")
+    req.sql("INSERT INTO [dbo].[registrations]([DateRegistered],[RegAttendeeID],[RegSeminarID],[RegStatus])VALUES(@DateRegistered,@RegAttendeeID,@RegSeminarID,@RegStatus)")
     .param('DateRegistered', req.body.DateRegistered, TYPES.nchar)
     .param('RegAttendeeID', req.body.RegAttendeeID, TYPES.nchar)
     .param('RegSeminarID', req.body.RegSeminarID, TYPES.nchar)
+    .param('RegStatus', req.body.RegStatus, TYPES.nchar)
         .exec(res);
 });
 
