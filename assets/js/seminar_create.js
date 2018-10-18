@@ -62,8 +62,7 @@ function updateSeminar() {
         })
     }).done(function (response) {
         console.log(response + "sem updated");
-        updateBooking(semID);
-        window.open('user_seminar_detail.html' + '?semID=' + semID, '_self', false);
+        updateBooking();
     });
 }
 
@@ -91,8 +90,9 @@ function createBooking(seminarID) {
     });
 }
 
-function updateBooking(seminarID) {
+function updateBooking() {
     var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
+    console.log(semID);
     $.ajax({
         async: true,
         crossDomain: true,
@@ -101,17 +101,19 @@ function updateBooking(seminarID) {
         headers: {
             'content-type': "application/json",
             'cache-control': "no-cache",
-            'postman-token': "3c3e8eed-0d1a-3c80-1bd7-40adee5a8196"
+            'postman-token': "c9b5ba62-5fd9-c261-9493-99e43a854146"
         },
         processData: false,
         data: JSON.stringify({
             "BookingStatus": "BOOKED",
-            "SeminarID": seminarID,
+            "SeminarID": semID,
             "RoomID": document.getElementById("roomNum").value,
             "UserID": localStorage.getItem("uid"),
             "HostID": document.getElementById("host").value
         })
     }).done(function (response) {
-        console.log(response + "booking created");
+        console.log(response + "booking updated");
+        console.log(document.getElementById("host").value);
+        //window.open('user_seminar_detail.html' + '?semID=' + semID, '_self', false);
     });
 }
