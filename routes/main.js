@@ -59,13 +59,20 @@ router.post('/api/attendees', function (req, res) {
 });
 
 router.post('/api/booking', function (req, res) {
-    req.sql("INSERT INTO [dbo].[booking]([BookingStatus],[SeminarID],[RoomID],[UserID])VALUES(@BookingStatus,@SeminarID,@RoomID,@UserID,@HostID)")
+    req.sql("INSERT INTO [dbo].[booking]([BookingStatus],[SeminarID],[RoomID],[UserID],[HostID])VALUES(@BookingStatus,@SeminarID,@RoomID,@UserID,@HostID)")
     .param('BookingStatus', req.body.BookingStatus, TYPES.nchar)
     .param('SeminarID', req.body.SeminarID, TYPES.nchar)
     .param('RoomID', req.body.RoomID, TYPES.nchar)
     .param('UserID', req.body.UserID, TYPES.nchar)
     .param('HostID', req.body.HostID, TYPES.nchar)
         .exec(res);
+});
+
+router.get('/api/booking/:id', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[booking] where SeminarID = @id for json path, without_array_wrapper")
+        .param('ID', req.params.id, TYPES.nchar)
+        .into(res, '[]');
 });
 
 router.post('/api/registration', function (req, res) {
