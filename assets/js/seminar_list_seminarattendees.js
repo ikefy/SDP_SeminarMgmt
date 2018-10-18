@@ -71,6 +71,7 @@ function setattendeetblCells(attendees) {
 function registerAttendee() {
     var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
     var uid = localStorage.uid;
+    //checkDate(semID);
     checkAttendee(semID, uid);
 }
 
