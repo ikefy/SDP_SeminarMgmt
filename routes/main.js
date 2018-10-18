@@ -47,6 +47,14 @@ router.get('/api/user/login/:username/:password', function (req, res) {
         .into(res, '[]');
 });
 
+router.get('/api/attendees/:username/:password', function (req, res) {
+
+    req.sql("SELECT * FROM [dbo].[attendees] where AttendeeFirstName = @username COLLATE SQL_Latin1_General_CP1_CS_AS and AttendeeLastName = @password COLLATE SQL_Latin1_General_CP1_CS_AS for json path, without_array_wrapper")
+        .param('username', req.params.username, TYPES.nchar)
+        .param('password', req.params.password, TYPES.nchar)
+        .into(res, '[]');
+});
+
 router.post('/api/attendees', function (req, res) {
     req.sql("INSERT INTO [dbo].[attendees] ([AttendeeFirstName],[AttendeeLastName],[AttendeeEmailAddress],[AttendeeDateOfBirth],[AttendeePhoneNumber],[AttendeeGender])VALUES(@AttendeeFirstName,@AttendeeLastName,@AttendeeEmailAddress,@AttendeeDateOfBirth,@AttendeePhoneNumber,@AttendeeGender)")
     .param('AttendeeFirstName', req.body.AttendeeFirstName, TYPES.nchar)
