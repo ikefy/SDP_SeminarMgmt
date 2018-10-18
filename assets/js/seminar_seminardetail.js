@@ -16,7 +16,7 @@ function deleteSem() {
     var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
     console.log(semID);
     deleteBooking(semID);
-    //window.open('user_seminar_list.html', '_self', false);
+    
 }
 
 function deleteBooking(seminarID) {
@@ -53,6 +53,7 @@ function deleteSeminar(SeminarID) {
 
     $.ajax(settings).done(function (response) {
         console.log(response);
+        window.open('user_seminar_list.html', '_self', false);
     });
 }
 

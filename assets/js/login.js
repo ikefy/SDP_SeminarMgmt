@@ -54,3 +54,10 @@ function userLogin_btn() {
     console.log("XX");
     window.open('user_home.html', '_self', false);
 }
+
+function attendee_login() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    console.log(username + password);
+    getUser(username, password);
+}
