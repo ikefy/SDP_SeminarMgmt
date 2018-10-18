@@ -85,7 +85,7 @@ router.get('/api/seminar/', function (req, res) {
 });
 
 router.post('/api/seminar/', function (req, res) {
-    req.sql("INSERT INTO [dbo].[seminar]([SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[SemRoomID],[SemDescription],[SpeakerName],[SpeakerDescription])VALUES(@SeminarTitle,@SeminarDate,@SeminarStartTime,@SeminarEndTime,@SeminarStatus,@SemRoomID,@SemDescription,@SpeakerName,@SpeakerDescription)")
+    req.sql("INSERT INTO [dbo].[seminar]([SeminarTitle],[SeminarDate],[SeminarStartTime],[SeminarEndTime],[SeminarStatus],[SemRoomID],[SemDescription],[SpeakerName],[SpeakerDescription])VALUES(@SeminarTitle,@SeminarDate,@SeminarStartTime,@SeminarEndTime,@SeminarStatus,@SemRoomID,@SemDescription,@SpeakerName,@SpeakerDescription; SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY] for json path;)")
     .param('SeminarTitle', req.body.SeminarTitle, TYPES.nchar)
     .param('SeminarDate', req.body.SeminarDate, TYPES.nchar)
     .param('SeminarStartTime', req.body.SeminarStartTime, TYPES.nchar)
@@ -95,7 +95,8 @@ router.post('/api/seminar/', function (req, res) {
     .param('SemDescription', req.body.SemDescription, TYPES.nchar)
     .param('SpeakerName', req.body.SpeakerName, TYPES.nchar)
     .param('SpeakerDescription', req.body.SpeakerDescription, TYPES.nchar)
-        .exec(res);
+        .exec(res)
+    .into(res, '[]');
 });
 
 /* GET single seminar. */
