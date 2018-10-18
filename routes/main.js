@@ -152,7 +152,7 @@ router.get('/api/seminar/daterange/dec', function (req, res) {
 
 router.get('/api/room/:id', function (req, res) {
 
-    req.sql("SELECT * FROM [dbo].[room] where RoomID = 40000004 for json path, without_array_wrapper")
+    req.sql("SELECT * FROM [dbo].[room] where RoomID = @id for json path, without_array_wrapper")
         .param('ID', req.params.id, TYPES.nchar)
         .into(res, '[]');
 });
