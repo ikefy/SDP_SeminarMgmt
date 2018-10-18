@@ -109,7 +109,7 @@ router.post('/api/registration', function (req, res) {
     .param('RegAttendeeID', req.body.RegAttendeeID, TYPES.nchar)
     .param('RegSeminarID', req.body.RegSeminarID, TYPES.nchar)
     .param('RegStatus', req.body.RegStatus, TYPES.nchar)
-        .exec(res);
+    .exec(res);
 });
 
 /* GET seminar listing. */
