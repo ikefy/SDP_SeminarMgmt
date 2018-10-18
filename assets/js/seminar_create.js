@@ -63,6 +63,7 @@ function updateSeminar() {
     }).done(function (response) {
         console.log(response + "sem updated");
         updateBooking(semID);
+        window.open('user_seminar_detail.html' + '?semID=' + semID, '_self', false);
     });
 }
 
