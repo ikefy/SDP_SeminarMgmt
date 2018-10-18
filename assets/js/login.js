@@ -9,6 +9,12 @@ function pageLoad() {
     document.getElementById("user").innerHTML = localStorage.u;
 }
 
+function updatePageLoad() {
+    pageLoad();
+    var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
+    getUpdateDetails(semID);
+}
+
 function user_logout() {
     localStorage.removeItem("uid");
     localStorage.removeItem("u");

@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>CHITCHAT | Welcome</title>
+        <link rel="stylesheet" href="./assets/css/seminar_style.css">
+        <link rel="stylesheet" href="./assets/css/coreui.min.css">
+        <link rel="stylesheet" href="./assets/css/coreui-icons.min.css">
+    </head>
+    <body onload="updatePageLoad()">
+        <header>
+            <div class="container">
+                <div id="branding">
+                    <h1 class="hightlight">CHITCHAT</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="user_home.html">Home</a></li>
+                        <li><a href="user_seminar_list.html">Seminar</a></li>
+                        <li class="current"><a href="user_update_seminar.html">Update Seminar</a></li>
+                        <li><a href="user_register_attendee.html">Register Attendee</a></li>
+                    </ul>
+                </nav>
+                <div align="right" >
+                    <h3 id="user">---</h3><button id="logout" onclick="user_logout()" type="button" class="button_1">Logout</button>
+                </div>
+            </div>
+    </header>
+        <section id="middlepart">
+            <div class="container">
+                <aside id="sidenav">
+                    <img src="./assets/img/uts.png"><nav>
+                        <ul>
+                            <li><a href="index.html">My Seminars</a></li>
+                            <li><a href="my_profile.html">My Profile</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div id="content">
+                    <div class="dark">
+                        <h1>Update Seminar</h1>
+                        <form class="quote">
+                            <!--<label>Seminar title</label><br>-->
+                            <input type="text" id="semTitle" placeholder="Enter title..."><br>
+                            <!--<label>Date</label><br>-->
+                            <input type="text" id="semDate" placeholder="YYYY-MM-DD"><br><br>
+                            <label >Start Time: </label>
+                            <select id="startTime" required>
+                                <option value="">Select an option</option>
+                                <option value="10:00:00.0000000">10AM</option>
+                                <option value="11:00:00.0000000">11AM</option>
+                                <option value="13:00:00.0000000">1PM</option>
+                                <option value="15:00:00.0000000">3PM</option>
+                            </select><br>
+                            <label >End Time: </label>
+                            <select id="endTime" required>
+                                <option value="">Select an option</option>
+                                <option value="12:00:00.0000000">12NOON</option>
+                                <option value="13:00:00.0000000">1PM</option>
+                                <option value="15:00:00.0000000">3PM</option>
+                                <option value="17:00:00.0000000">5PM</option>
+                            </select><br>
+                            <label>  Room Number: </label>
+                            <select id="roomNum" required>
+                                <option value="">Select an option</option>
+                                <option value="40000001">CB11.00.205</option>
+                                <option value="40000002">CB05.00.301</option>
+                                <option value="40000003">CB06.03.203</option>
+                                <option value="40000004">CB07.04.306</option>
+                                <option value="40000005">CB01.06.302</option>
+                                <option value="40000006">CB05.03.203</option>
+                                <option value="40000007">CB04.01.102</option>
+                            </select><br>
+                            <label >Host: </label>
+                            <select id="Host" required>
+                                <option value="">Select an option</option>
+                                <option value="10000011">Tom McBride</option>
+                                <option value="10000012">Azadeh Noori Hoshyar</option>
+                            </select><br>
+                            <!--<label>Description</label>-->
+                            <textarea id="semDescription" placeholder="Enter description"></textarea><br>
+                            <input type="text" id="speakerName" placeholder="Enter Host name"><br>
+                            <textarea id="speakerDescription" placeholder="Enter speaker details"></textarea><br>
+                            <br><button id="btn" onclick="updateSeminar()" type="button" class="button_1">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <footer>
+            <p>SDP 2018</p>
+        </footer>
+        <script src="./assets/js/jquery-3.3.1.min.js"></script>
+        <script src="./assets/js/seminar_seminardetail.js" type='text/javascript'></script>
+        <script src="./assets/js/seminar_create.js"></script>
+        <script src="./assets/js/login.js"></script>
+    </body>
+</html>
