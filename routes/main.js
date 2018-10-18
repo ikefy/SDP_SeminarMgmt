@@ -55,6 +55,14 @@ router.get('/api/attendees/:username/:password', function (req, res) {
         .into(res, '[]');
 });
 
+router.put('/api/attendees/:id/', function (req, res) {
+
+    req.sql("UPDATE [dbo].[attendees] SET [AttendeeEmailAddress] = @email where AttendeeID = @id")
+        .param('ID', req.params.id, TYPES.nchar)
+        .param('email', req.body.email, TYPES.nchar)
+        .exec(res);
+});
+
 router.post('/api/attendees', function (req, res) {
     req.sql("INSERT INTO [dbo].[attendees] ([AttendeeFirstName],[AttendeeLastName],[AttendeeEmailAddress],[AttendeeDateOfBirth],[AttendeePhoneNumber],[AttendeeGender])VALUES(@AttendeeFirstName,@AttendeeLastName,@AttendeeEmailAddress,@AttendeeDateOfBirth,@AttendeePhoneNumber,@AttendeeGender)")
     .param('AttendeeFirstName', req.body.AttendeeFirstName, TYPES.nchar)
