@@ -93,7 +93,7 @@ router.get('/api/booking/:id', function (req, res) {
 
 router.put('/api/booking/:id', function (req, res) {
 
-    req.sql("UPDATE [dbo].[booking] SET [BookingStatus] = @BookingStatus,[SeminarID] = @SeminarID,[RoomID] = @RoomID,[UserID] = @UserID,[HostID] = @HostID WHERE BookingID = @id")
+    req.sql("UPDATE [dbo].[booking] SET [BookingStatus] = @BookingStatus,[SeminarID] = @SeminarID,[RoomID] = @RoomID,[UserID] = @UserID,[HostID] = @HostID WHERE SeminarID = @id")
         .param('ID', req.params.id, TYPES.nchar)
         .param('BookingStatus', req.body.BookingStatus, TYPES.nchar)
         .param('SeminarID', req.body.SeminarID, TYPES.nchar)
