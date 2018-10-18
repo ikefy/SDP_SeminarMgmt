@@ -32,7 +32,7 @@ function createSem() {
         var scope_parse = JSON.parse(response);
         var createdSeminarID = scope_parse.SCOPE_IDENTITY;
         console.log(createdSeminarID);
-        //createBooking(createdSeminarID);
+        createBooking(createdSeminarID);
     });
 }
 

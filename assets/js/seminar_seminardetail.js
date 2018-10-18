@@ -38,4 +38,6 @@ function setPageValues(seminar) {
     document.getElementById("semDate").innerHTML = seminar.SeminarDate + '<br>' + seminar.SeminarStartTime + ' to ' + seminar.SeminarEndTime;
     document.getElementById("semDescription").innerHTML = seminar.SemDescription;
     document.getElementById("semVenue").innerHTML = seminar.SemRoomID;
+    document.getElementById("semHost").innerHTML = seminar.SpeakerName;
+    document.getElementById("hostDescription").innerHTML = seminar.SpeakerDescription;
 }
