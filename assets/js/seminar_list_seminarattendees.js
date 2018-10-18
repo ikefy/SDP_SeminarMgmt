@@ -74,6 +74,25 @@ function registerAttendee() {
     checkAttendee(semID, uid);
 }
 
+function setAttending() {
+    var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
+    var uid = localStorage.uid;
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://sdp-seminarmgmt.azurewebsites.net/api/registration/" + uid + "/" + semID,
+        "method": "PUT",
+        "headers": {
+            "cache-control": "no-cache",
+            "postman-token": "45a21b0d-8878-3ab7-34af-5365f81b6044"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+}
+
 function checkAttendee(semID, uid) {
     console.log();
     var settings = {

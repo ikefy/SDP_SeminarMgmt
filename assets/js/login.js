@@ -45,8 +45,10 @@ function getUser(username, password) {
         //uid = login_parse.UserID;
         if (login_parse.UserID != null)
             userLogin_btn();
-        else
+        else {
+            window.alert("wrong login");
             console.log("wrong Login");
+        }
     });
 }
 
@@ -85,11 +87,17 @@ function getAttendee(username, password) {
         //uid = login_parse.UserID;
         if (login_parse.AttendeeID != null)
             attendeeLogin_btn();
-        else
+        else {
             console.log("wrong Login");
+            window.alert("wrong login");
+        }
     });
 }
 
 function attendeeLogin_btn() {
+    window.open('attendee_home.html', '_self', false);
+}
+
+function updateEmail() {
 
 }
