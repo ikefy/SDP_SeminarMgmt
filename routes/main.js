@@ -88,6 +88,13 @@ router.put('/api/booking/:id', function (req, res) {
         
 });
 
+router.delete('/api/booking/:id', function (req, res) {
+
+    req.sql("DELETE FROM [dbo].[booking] where SeminarID = @id")
+        .param('ID', req.params.id, TYPES.nchar)
+        .exec(res);
+});
+
 router.post('/api/registration', function (req, res) {
     req.sql("INSERT INTO [dbo].[registrations]([DateRegistered],[RegAttendeeID],[RegSeminarID])VALUES(@DateRegistered,@RegAttendeeID,@RegSeminarID)")
     .param('DateRegistered', req.body.DateRegistered, TYPES.nchar)
@@ -131,7 +138,6 @@ router.delete('/api/seminar/:id', function (req, res) {
     req.sql("DELETE FROM [dbo].[seminar] where SeminarID = @id")
         .param('ID', req.params.id, TYPES.Int)
         .exec(res);
-
 });
 
 router.put('/api/seminar/:id', function (req, res) {
