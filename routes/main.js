@@ -75,6 +75,19 @@ router.get('/api/booking/:id', function (req, res) {
         .into(res, '[]');
 });
 
+router.put('/api/booking/:id', function (req, res) {
+
+    req.sql("UPDATE [dbo].[booking] SET [BookingStatus] = @BookingStatus,[SeminarID] = @SeminarID,[RoomID] = @RoomID,[UserID] = @UserID,[HostID] = @HostID WHERE BookingID = @id")
+        .param('ID', req.params.id, TYPES.nchar)
+        .param('BookingStatus', req.body.BookingStatus, TYPES.nchar)
+        .param('SeminarID', req.body.SeminarID, TYPES.nchar)
+        .param('RoomID', req.body.RoomID, TYPES.nchar)
+        .param('UserID', req.body.UserID, TYPES.nchar)
+        .param('HostID', req.body.HostID, TYPES.nchar)
+        .exec(res);
+        
+});
+
 router.post('/api/registration', function (req, res) {
     req.sql("INSERT INTO [dbo].[registrations]([DateRegistered],[RegAttendeeID],[RegSeminarID])VALUES(@DateRegistered,@RegAttendeeID,@RegSeminarID)")
     .param('DateRegistered', req.body.DateRegistered, TYPES.nchar)
@@ -128,6 +141,8 @@ router.put('/api/seminar/:id', function (req, res) {
         .param('SpeakerDescription', req.body.SpeakerDescription, TYPES.nchar)
         .exec(res);
 });
+
+
 
 /* GET attendees for specific seminar. */
 router.get('/api/seminar/:id/attendees', function (req, res) {
