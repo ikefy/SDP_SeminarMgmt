@@ -65,3 +65,7 @@ function setattendeetblCells(attendees) {
     var x = document.getElementById("attendeetblheader").rows[0].cells;
     x[0].innerHTML = attendees[0].SeminarTitle;
 }
+
+function registerAttendee() {
+
+}

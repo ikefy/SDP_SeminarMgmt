@@ -61,6 +61,10 @@ function showSeminarDetail(SeminarID) {
     window.open('user_seminar_detail.html' + '?semID=' + SeminarID, '_self', false);
 }
 
+function showAttendeeSeminarDetail(SeminarID) {
+    window.open('attendee_seminar_detail.html' + '?semID=' + SeminarID, '_self', false);
+}
+
 function getUpdateDetails(SeminarID) {
     console.log(SeminarID);
     var settings = {
