@@ -20,6 +20,7 @@ function update() {
     console.log("update" + semID);
     window.open('user_update_seminar.html' + '?semID=' + semID, '_self', false);
 }
+
 function deleteSem() {
     var semID = parent.document.URL.substring(parent.document.URL.indexOf('semID=') + 6, parent.document.URL.length);
     console.log(semID);

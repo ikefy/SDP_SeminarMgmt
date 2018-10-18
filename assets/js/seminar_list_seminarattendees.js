@@ -119,6 +119,9 @@ function checkAttendee(semID, uid) {
         if (count == 0) {
             createAttendee();
         }
+        else {
+            window.alert("already registered");
+        }
     });
 }
 
