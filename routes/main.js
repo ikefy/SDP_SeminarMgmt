@@ -112,6 +112,13 @@ router.post('/api/registration', function (req, res) {
     .exec(res);
 });
 
+router.put('/api/registration/:uid/:sid', function (req, res) {
+    req.sql("UPDATE [dbo].[registrations] SET [RegStatus] = 'Attending' where RegAttendeeID = @uid AND RegSeminarID = @sid")
+    .param('RegAttendeeID', req.body.RegAttendeeID, TYPES.nchar)
+    .param('RegSeminarID', req.body.RegSeminarID, TYPES.nchar)
+    .exec(res);
+});
+
 /* GET seminar listing. */
 router.get('/api/seminar/', function (req, res) {
 
