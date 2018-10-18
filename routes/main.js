@@ -113,6 +113,22 @@ router.get('/api/seminar/:id', function (req, res) {
         .into(res, '[]');
 });
 
+router.put('/api/seminar/:id', function (req, res) {
+
+    req.sql("UPDATE [dbo].[seminar] SET [SeminarTitle] = @SeminarTitle,[SeminarDate] = @SeminarDate,[SeminarStartTime] = @SeminarStartTime,[SeminarEndTime] = @SeminarEndTime,[SeminarStatus] = @SeminarStatus,[SemRoomID] = @SemRoomID,[SemDescription] = @SemDescription,[SpeakerName] = @SpeakerName,[SpeakerDescription] = @SpeakerDescription WHERE SeminarID = @id")
+        .param('ID', req.params.id, TYPES.nchar)
+        .param('SeminarTitle', req.body.SeminarTitle, TYPES.nchar)
+        .param('SeminarDate', req.body.SeminarDate, TYPES.nchar)
+        .param('SeminarStartTime', req.body.SeminarStartTime, TYPES.nchar)
+        .param('SeminarEndTime', req.body.SeminarEndTime, TYPES.nchar)
+        .param('SeminarStatus', req.body.SeminarStatus, TYPES.nchar)
+        .param('SemRoomID', req.body.SemRoomID, TYPES.nchar)
+        .param('SemDescription', req.body.SemDescription, TYPES.nchar)
+        .param('SpeakerName', req.body.SpeakerName, TYPES.nchar)
+        .param('SpeakerDescription', req.body.SpeakerDescription, TYPES.nchar)
+        .exec(res);
+});
+
 /* GET attendees for specific seminar. */
 router.get('/api/seminar/:id/attendees', function (req, res) {
 
