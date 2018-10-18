@@ -95,7 +95,7 @@ router.post('/api/seminar/', function (req, res) {
     .param('SemDescription', req.body.SemDescription, TYPES.nchar)
     .param('SpeakerName', req.body.SpeakerName, TYPES.nchar)
     .param('SpeakerDescription', req.body.SpeakerDescription, TYPES.nchar)
-        .exec(res, '[]');
+        .into(res, '[]');
 });
 
 /* GET single seminar. */
