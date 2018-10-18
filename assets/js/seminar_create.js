@@ -1,6 +1,6 @@
 function createSeminar() {
     createSem();
-    createBooking();
+    //createBooking();
 }
 
 function createSem() {
@@ -28,10 +28,15 @@ function createSem() {
         })
     }).done(function (response) {
         console.log(response + "sem created");
+        var scope = response;
+        var scope_parse = JSON.parse(response);
+        var createdSeminarID = scope_parse.SCOPE_IDENTITY;
+        console.log(createdSeminarID);
+        //createBooking(createdSeminarID);
     });
 }
 
-function createBooking() {
+function createBooking(seminarID) {
     $.ajax({
         async: true,
         crossDomain: true,
@@ -45,10 +50,10 @@ function createBooking() {
         processData: false,
         data: JSON.stringify({
             "BookingStatus": "BOOKED",
-            "SeminarID": document.getElementById("semDate").value,
+            "SeminarID": seminarID,
             "RoomID": document.getElementById("roomNum").value,
-            "UserID": document.getElementById("endTime").value,
-            "HostID": document.getElementById("endTime").value
+            "UserID": localStorage.getItem("uid"),
+            "HostID": document.getElementById("host").value
         })
     }).done(function (response) {
         console.log(response + "booking created");
